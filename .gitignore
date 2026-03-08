@@ -1,0 +1,8 @@
+node_modules/
+_site/
+worker/node_modules/
+worker/.dev.vars
+.DS_Store
+.idea/
+*.iml
+package-lock.json

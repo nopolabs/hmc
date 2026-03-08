@@ -1,0 +1,22 @@
+---
+title: Home
+layout: layout.njk
+---
+
+<div class="hero">
+  <h1>Time, <em>Reclaimed.</em></h1>
+  <p>Whether you've escaped full-time work or you're carving out freedom on weekends — you're in the club.</p>
+</div>
+
+<div class="products">
+  {% for product in products %}
+    <div class="product-card">
+      <img src="{{ product.image }}" alt="{{ product.name }}">
+      <div class="product-title-price">
+        <h2>{{ product.name }}</h2>
+        <p>${{ product.price }}</p>
+      </div>
+      <a href="/checkout?slug={{ product.slug }}" class="buy-button">Buy Now</a>
+    </div>
+  {% endfor %}
+</div>
