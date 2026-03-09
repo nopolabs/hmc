@@ -2,7 +2,11 @@
   {
     "name": "HMC crow t-shirt",
     "slug": "hmc-crow-t-shirt",
-    "image": "/images/hmc-crow-t-shirt-white-front-69af078caa305.png",
+    "images": [
+      "/images/hmc-crow-t-shirt-white-front-69af078caa305.png",
+      "/images/hmc-crow-t-shirt-white-front-69af078caa856.png",
+      "/images/hmc-crow-t-shirt-white-front-69af078caacb9.png"
+    ],
     "variants": [
       {
         "size": "XS",
