@@ -4,13 +4,41 @@
     "slug": "hmc-t-shirt",
     "image": "/images/unisex-staple-eco-t-shirt-white-front-69ace042a4be7.png",
     "variants": [
-      { "size": "XS",  "price": "24.00", "printful_variant_id": 5226230719 },
-      { "size": "S",   "price": "24.00", "printful_variant_id": 5226230720 },
-      { "size": "M",   "price": "24.00", "printful_variant_id": 5226230721 },
-      { "size": "L",   "price": "24.00", "printful_variant_id": 5226230722 },
-      { "size": "XL",  "price": "24.00", "printful_variant_id": 5226230723 },
-      { "size": "2XL", "price": "24.00", "printful_variant_id": 5226230724 },
-      { "size": "3XL", "price": "24.00", "printful_variant_id": 5226230725 }
+      {
+        "size": "XS",
+        "price": "20.00",
+        "printful_variant_id": 5226230719
+      },
+      {
+        "size": "S",
+        "price": "20.00",
+        "printful_variant_id": 5226230720
+      },
+      {
+        "size": "M",
+        "price": "20.00",
+        "printful_variant_id": 5226230721
+      },
+      {
+        "size": "L",
+        "price": "20.00",
+        "printful_variant_id": 5226230722
+      },
+      {
+        "size": "XL",
+        "price": "20.00",
+        "printful_variant_id": 5226230723
+      },
+      {
+        "size": "2XL",
+        "price": "20.00",
+        "printful_variant_id": 5226230724
+      },
+      {
+        "size": "3XL",
+        "price": "20.00",
+        "printful_variant_id": 5226230725
+      }
     ]
   }
 ]
