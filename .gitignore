@@ -3,6 +3,7 @@ node_modules/
 _site/
 worker/node_modules/
 worker/.dev.vars
+worker/.prod.vars
 worker/secrets-do-not-commit
 .DS_Store
 .idea/

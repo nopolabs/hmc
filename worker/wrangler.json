@@ -2,17 +2,12 @@
 	"name": "hmc-worker",
 	"main": "src/index.js",
 	"compatibility_date": "2026-02-26",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"observability": {
 		"enabled": true
 	},
-	"kv_namespaces": [
-		{
-			"binding": "ORDERS",
-			"id": "",
-			"preview_id": ""
-		}
-	],
 	"routes": [
 		{
 			"pattern": "hmc-cycling.org/checkout*",
@@ -21,6 +16,13 @@
 		{
 			"pattern": "hmc-cycling.org/webhook*",
 			"zone_name": "hmc-cycling.org"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "ORDERS",
+			"id": "fed14a1372f6452cb33e81a41f5132bf",
+			"preview_id": "47b8bf2d131f4b7583d7975ae88dd92e"
 		}
 	]
 }

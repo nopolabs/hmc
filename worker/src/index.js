@@ -1,22 +1,7 @@
 import Stripe from 'stripe';
+import { PRODUCTS } from './products.js';
 
 const PRINTFUL_STORE_ID = 17828143;
-
-// product catalog - matches products.json
-const PRODUCTS = {
-	'hmc-t-shirt': {
-		name: 'HMC eco t-shirt',
-		variants: {
-			'XS':  { price: 2400, printful_variant_id: 5226230719 },
-			'S':   { price: 2400, printful_variant_id: 5226230720 },
-			'M':   { price: 2400, printful_variant_id: 5226230721 },
-			'L':   { price: 2400, printful_variant_id: 5226230722 },
-			'XL':  { price: 2400, printful_variant_id: 5226230723 },
-			'2XL': { price: 2400, printful_variant_id: 5226230724 },
-			'3XL': { price: 2400, printful_variant_id: 5226230725 },
-		},
-	},
-};
 
 export default {
 	async fetch(request, env, ctx) {
@@ -61,6 +46,9 @@ async function handleCheckout(request, env, url) {
 			quantity: 1,
 		}],
 		mode: 'payment',
+		shipping_address_collection: {
+			allowed_countries: ['US'],
+		},
 		shipping_options: [
 			{
 				shipping_rate_data: {
