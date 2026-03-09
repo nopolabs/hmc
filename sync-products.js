@@ -93,7 +93,9 @@ async function syncProducts(apiKey) {
   writeFileSync(productsJsPath, productsJs);
   console.log(`Wrote ${productsJsPath}`);
 
-  console.log('\nDone. Deploy the worker to apply changes:\n  cd worker && npm run deploy\n');
+  console.log('\nDone. Next steps:');
+  console.log('  Deploy the worker:        cd worker && npm run deploy');
+  console.log('  Commit and push the site: git add src/_data/products.json && git commit -m "sync products" && git push\n');
 }
 
 const apiKey = loadApiKey();

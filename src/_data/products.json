@@ -40,5 +40,47 @@
         "printful_variant_id": 5226230725
       }
     ]
+  },
+  {
+    "name": "HMC crow t-shirt",
+    "slug": "hmc-crow-t-shirt",
+    "image": "/images/hmc-crow-t-shirt-white-front-69af078caa305.png",
+    "variants": [
+      {
+        "size": "XS",
+        "price": "20.00",
+        "printful_variant_id": 5226945173
+      },
+      {
+        "size": "S",
+        "price": "20.00",
+        "printful_variant_id": 5226945174
+      },
+      {
+        "size": "M",
+        "price": "20.00",
+        "printful_variant_id": 5226945175
+      },
+      {
+        "size": "L",
+        "price": "20.00",
+        "printful_variant_id": 5226945176
+      },
+      {
+        "size": "XL",
+        "price": "20.00",
+        "printful_variant_id": 5226945177
+      },
+      {
+        "size": "2XL",
+        "price": "20.00",
+        "printful_variant_id": 5226945178
+      },
+      {
+        "size": "3XL",
+        "price": "20.00",
+        "printful_variant_id": 5226945179
+      }
+    ]
   }
 ]

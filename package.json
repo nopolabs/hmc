@@ -1,5 +1,6 @@
 {
-  "name": "mtw4",
+  "type": "module",
+  "name": "hmc",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

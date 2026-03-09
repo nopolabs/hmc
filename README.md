@@ -28,7 +28,7 @@ A static ecommerce site built with Eleventy and deployed to Cloudflare Pages, us
 ## Project structure
 
 ```
-mtw4/
+hmc/
 ├── src/
 │   ├── _includes/
 │   │   └── layout.njk        # Shared HTML layout (nav, footer, head)
@@ -152,7 +152,7 @@ cd worker
 npm run deploy
 ```
 
-Worker is deployed to: `https://mtw4-worker.danrevel.workers.dev`
+Worker is deployed to: `https://hmc-worker.danrevel.workers.dev`
 
 ### Production secrets
 

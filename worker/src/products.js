@@ -32,5 +32,38 @@ export const PRODUCTS = {
 				"printful_variant_id": 5226230725
 			}
 		}
+	},
+	"hmc-crow-t-shirt": {
+		"name": "HMC crow t-shirt",
+		"variants": {
+			"XS": {
+				"price": 2000,
+				"printful_variant_id": 5226945173
+			},
+			"S": {
+				"price": 2000,
+				"printful_variant_id": 5226945174
+			},
+			"M": {
+				"price": 2000,
+				"printful_variant_id": 5226945175
+			},
+			"L": {
+				"price": 2000,
+				"printful_variant_id": 5226945176
+			},
+			"XL": {
+				"price": 2000,
+				"printful_variant_id": 5226945177
+			},
+			"2XL": {
+				"price": 2000,
+				"printful_variant_id": 5226945178
+			},
+			"3XL": {
+				"price": 2000,
+				"printful_variant_id": 5226945179
+			}
+		}
 	}
 };
