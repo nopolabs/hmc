@@ -1,20 +1,21 @@
 import Stripe from 'stripe';
 
-// MasterTimeWaster API
-const PRINTFUL_STORE_ID = 17783389;
+const PRINTFUL_STORE_ID = 17828143;
 
 // product catalog - matches products.json
 const PRODUCTS = {
-	'retired-cap': {
-		name: 'Retired',
-		price: 2700,
-		printful_variant_id: 5214014982,
+	'hmc-t-shirt': {
+		name: 'HMC eco t-shirt',
+		variants: {
+			'XS':  { price: 2400, printful_variant_id: 5226230719 },
+			'S':   { price: 2400, printful_variant_id: 5226230720 },
+			'M':   { price: 2400, printful_variant_id: 5226230721 },
+			'L':   { price: 2400, printful_variant_id: 5226230722 },
+			'XL':  { price: 2400, printful_variant_id: 5226230723 },
+			'2XL': { price: 2400, printful_variant_id: 5226230724 },
+			'3XL': { price: 2400, printful_variant_id: 5226230725 },
+		},
 	},
-	'weekend-warrior-cap': {
-		name: 'Weekend Warrior',
-		price: 2700,
-		printful_variant_id: 5214014984,
-	}
 };
 
 export default {
@@ -35,10 +36,16 @@ export default {
 
 async function handleCheckout(request, env, url) {
 	const slug = url.searchParams.get('slug');
-	const product = PRODUCTS[slug];
+	const size = url.searchParams.get('size');
+	const productDef = PRODUCTS[slug];
 
-	if (!product) {
+	if (!productDef) {
 		return new Response('Product not found', { status: 404 });
+	}
+
+	const variant = productDef.variants[size];
+	if (!variant) {
+		return new Response('Size not found', { status: 404 });
 	}
 
 	const stripe = new Stripe(env.STRIPE_SECRET_KEY);
@@ -48,8 +55,8 @@ async function handleCheckout(request, env, url) {
 		line_items: [{
 			price_data: {
 				currency: 'usd',
-				product_data: { name: product.name },
-				unit_amount: product.price,
+				product_data: { name: `${productDef.name} (${size})` },
+				unit_amount: variant.price,
 			},
 			quantity: 1,
 		}],
@@ -72,9 +79,10 @@ async function handleCheckout(request, env, url) {
 		],
 		metadata: {
 			slug: slug,
+			size: size,
 		},
-		success_url: `https://mtw.lol/success`,
-		cancel_url: `https://mtw.lol/`,
+		success_url: `https://hmc-cycling.org/success`,
+		cancel_url: `https://hmc-cycling.org/`,
 	});
 
 	return Response.redirect(session.url, 303);
@@ -118,7 +126,8 @@ async function handleWebhook(request, env, ctx) {
 
 async function createPrintfulOrder(session, env) {
 	const slug = session.metadata.slug;
-	const product = PRODUCTS[slug];
+	const size = session.metadata.size;
+	const variant = PRODUCTS[slug].variants[size];
 	const shipping = session.collected_information.shipping_details;
 
 	const order = {
@@ -133,13 +142,13 @@ async function createPrintfulOrder(session, env) {
 			email: session.customer_details.email,
 		},
 		items: [{
-			sync_variant_id: product.printful_variant_id,
+			sync_variant_id: variant.printful_variant_id,
 			quantity: 1,
-			retail_price: (product.price / 100).toFixed(2),
+			retail_price: (variant.price / 100).toFixed(2),
 		}],
 		retail_costs: {
 			currency: 'USD',
-			subtotal: (product.price / 100).toFixed(2),
+			subtotal: (variant.price / 100).toFixed(2),
 		}
 	};
 

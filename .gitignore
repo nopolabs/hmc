@@ -1,8 +1,11 @@
+tmp/
 node_modules/
 _site/
 worker/node_modules/
 worker/.dev.vars
+worker/secrets-do-not-commit
 .DS_Store
 .idea/
 *.iml
 package-lock.json
+.claude/

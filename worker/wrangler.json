@@ -1,5 +1,5 @@
 {
-	"name": "mtw4-worker",
+	"name": "hmc-worker",
 	"main": "src/index.js",
 	"compatibility_date": "2026-02-26",
 	"compatibility_flags": ["nodejs_compat"],
@@ -9,18 +9,18 @@
 	"kv_namespaces": [
 		{
 			"binding": "ORDERS",
-			"id": "5edaa727c5c24bcd9dbd63231a49897c",
-			"preview_id": "e264a0d54ea04ae39de8853a690452be"
+			"id": "",
+			"preview_id": ""
 		}
 	],
 	"routes": [
 		{
-			"pattern": "mtw.lol/checkout*",
-			"zone_name": "mtw.lol"
+			"pattern": "hmc-cycling.org/checkout*",
+			"zone_name": "hmc-cycling.org"
 		},
 		{
-			"pattern": "mtw.lol/webhook*",
-			"zone_name": "mtw.lol"
+			"pattern": "hmc-cycling.org/webhook*",
+			"zone_name": "hmc-cycling.org"
 		}
 	]
 }

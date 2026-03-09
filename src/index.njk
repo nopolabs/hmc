@@ -14,9 +14,21 @@ layout: layout.njk
       <img src="{{ product.image }}" alt="{{ product.name }}">
       <div class="product-title-price">
         <h2>{{ product.name }}</h2>
-        <p>${{ product.price }}</p>
+        <p>${{ product.variants[0].price }}</p>
       </div>
-      <a href="/checkout?slug={{ product.slug }}" class="buy-button">Buy Now</a>
+      <form action="/checkout" method="GET">
+        <input type="hidden" name="slug" value="{{ product.slug }}">
+        <div>
+          Size:
+          <select name="size" required>
+            <option value="" selected disabled>Select</option>
+            {% for variant in product.variants %}
+              <option value="{{ variant.size }}">{{ variant.size }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button type="submit" class="buy-button">Buy Now</button>
+      </form>
     </div>
   {% endfor %}
 </div>
