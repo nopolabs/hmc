@@ -10,7 +10,14 @@ layout: layout.njk
 <div class="products">
   {% for product in products %}
     <div class="product-card">
-      <img src="{{ product.image }}" alt="{{ product.name }}">
+      <img class="product-main-image" src="{{ product.images[0] }}" alt="{{ product.name }}">
+      {% if product.images.length > 1 %}
+        <div class="product-thumbnails">
+          {% for img in product.images %}
+            <img src="{{ img }}" alt="{{ product.name }}" onclick="this.closest('.product-card').querySelector('.product-main-image').src = this.src">
+          {% endfor %}
+        </div>
+      {% endif %}
       <div class="product-title-price">
         <h2>{{ product.name }}</h2>
         <p>${{ product.variants[0].price }}</p>

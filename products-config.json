@@ -2,15 +2,23 @@
   {
     "slug": "hmc-t-shirt",
     "name": "HMC eco t-shirt",
-    "image": "/images/hmc-logo-t-shirt-white-front-69ace042a4be7.png",
+    "images": [
+      "/images/hmc-logo-t-shirt-white-front-69ace042a4be7.png"
+    ],
     "printful_product_id": 422979057,
-    "retail_price": 20.00
+    "retail_price": 20.00,
+    "active": false
   },
   {
     "slug": "hmc-crow-t-shirt",
     "name": "HMC crow t-shirt",
-    "image": "/images/hmc-crow-t-shirt-white-front-69af078caa305.png",
+    "images": [
+      "/images/hmc-crow-t-shirt-white-front-69af078caa305.png",
+      "/images/hmc-crow-t-shirt-white-front-69af078caa856.png",
+      "/images/hmc-crow-t-shirt-white-front-69af078caacb9.png"
+    ],
     "printful_product_id": 423091495,
-    "retail_price": 20.00
+    "retail_price": 20.00,
+    "active": true
   }
 ]

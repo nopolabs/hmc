@@ -51,7 +51,7 @@ async function syncProducts(apiKey) {
   const frontendProducts = [];
   const workerProducts = {};
 
-  for (const entry of config) {
+  for (const entry of config.filter(p => p.active !== false)) {
     if (!entry.printful_product_id) {
       throw new Error(`Missing printful_product_id for "${entry.slug}". Run --list to find it.`);
     }
@@ -75,7 +75,7 @@ async function syncProducts(apiKey) {
     frontendProducts.push({
       name: entry.name,
       slug: entry.slug,
-      image: entry.image,
+      images: entry.images ?? [],
       variants: frontendVariants,
     });
 

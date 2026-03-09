@@ -142,7 +142,7 @@ nav {
   flex-direction: column;
 }
 
-.product-card img {
+.product-main-image {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
@@ -151,8 +151,28 @@ nav {
   transition: opacity 0.3s;
 }
 
-.product-card:hover img {
+.product-card:hover .product-main-image {
   opacity: 0.9;
+}
+
+.product-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.product-thumbnails img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.product-thumbnails img:hover {
+  opacity: 1;
 }
 
 .product-title-price {
