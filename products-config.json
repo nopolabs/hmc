@@ -1,24 +1,47 @@
 [
   {
-    "slug": "hmc-t-shirt",
-    "name": "HMC eco t-shirt",
+    "slug": "69af06d5cf6119",
+    "name": "Unisex Staple Eco T-Shirt HMC Crow",
     "images": [
-      "/images/hmc-logo-t-shirt-white-front-69ace042a4be7.png"
-    ],
-    "printful_product_id": 422979057,
-    "retail_price": 20.00,
-    "active": false
-  },
-  {
-    "slug": "hmc-crow-t-shirt",
-    "name": "HMC crow t-shirt",
-    "images": [
-      "/images/hmc-crow-t-shirt-white-front-69af078caa305.png",
-      "/images/hmc-crow-t-shirt-white-front-69af078caa856.png",
-      "/images/hmc-crow-t-shirt-white-front-69af078caacb9.png"
+      "/images/unisex-staple-eco-t-shirt-white-front-69b06a3ade282.png",
+      "/images/unisex-staple-eco-t-shirt-white-front-69b06a3aded55.png",
+      "/images/unisex-staple-eco-t-shirt-white-left-69b06a3ade70a.png",
+      "/images/unisex-staple-eco-t-shirt-white-left-front-69b06a3adf075.png",
+      "/images/unisex-staple-eco-t-shirt-white-right-69b06a3adea09.png"
     ],
     "printful_product_id": 423091495,
-    "retail_price": 20.00,
+    "retail_price": 100.0,
+    "active": true
+  },
+  {
+    "slug": "69b05922051f48",
+    "name": "Women\u2019s basic softstyle t-shirt HMC Crow",
+    "images": [
+      "/images/womens-basic-softstyle-t-shirt-white-back-69b069d224b05.png",
+      "/images/womens-basic-softstyle-t-shirt-white-back-69b069d226182.png",
+      "/images/womens-basic-softstyle-t-shirt-white-front-69b069d224451.png",
+      "/images/womens-basic-softstyle-t-shirt-white-front-69b069d225c40.png",
+      "/images/womens-basic-softstyle-t-shirt-white-left-69b069d22509f.png",
+      "/images/womens-basic-softstyle-t-shirt-white-right-69b069d2256bf.png",
+      "/images/womens-basic-softstyle-t-shirt-white-right-front-69b069d2266af.png"
+    ],
+    "printful_product_id": 423234180,
+    "retail_price": 100.0,
+    "active": true
+  },
+  {
+    "slug": "69b05a6edf8004",
+    "name": "Women's Relaxed T-Shirt HMC Crow",
+    "images": [
+      "/images/womens-relaxed-t-shirt-white-back-69b067f0bef57.png",
+      "/images/womens-relaxed-t-shirt-white-front-69b067f0beb84.png",
+      "/images/womens-relaxed-t-shirt-white-left-69b067f0bf77e.png",
+      "/images/womens-relaxed-t-shirt-white-left-front-69b067f0bf20f.png",
+      "/images/womens-relaxed-t-shirt-white-right-69b067f0bf9ae.png",
+      "/images/womens-relaxed-t-shirt-white-right-front-69b067f0bf4c7.png"
+    ],
+    "printful_product_id": 423235297,
+    "retail_price": 100.0,
     "active": true
   }
 ]
