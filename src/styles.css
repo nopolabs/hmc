@@ -223,6 +223,14 @@ nav {
   background-color: var(--accent);
 }
 
+/* ── Preview mode ───────────────────────────────────────── */
+.preview-message {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+}
+
 /* ── Interior pages ─────────────────────────────────────── */
 .page-content h1 {
   font-family: 'Cormorant Garamond', serif;
