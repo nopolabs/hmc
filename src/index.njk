@@ -10,7 +10,9 @@ layout: layout.njk
 <div class="products">
   {% for product in products %}
     <div class="product-card">
-      <img class="product-main-image" src="{{ product.images[0] }}" alt="{{ product.name }}">
+      <div class="product-image-wrapper">
+        <img class="product-main-image" src="{{ product.images[0] }}" alt="{{ product.name }}">
+      </div>
       {% if product.images.length > 1 %}
         <div class="product-thumbnails">
           {% for img in product.images %}
@@ -22,6 +24,9 @@ layout: layout.njk
         <h2>{{ product.name }}</h2>
         <p>${{ product.variants[0].price }}</p>
       </div>
+      {% if product.description %}
+        <p class="product-description">{{ product.description }}</p>
+      {% endif %}
       <form action="/checkout" method="GET">
         <input type="hidden" name="slug" value="{{ product.slug }}">
         <div>

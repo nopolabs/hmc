@@ -36,12 +36,20 @@ for product_file in sorted(glob.glob(f"{TMP_DIR}/product-*.json")):
                 prefix = re.sub(r'-(front|back|left|right).*$', '', file["filename"])
                 prefixes.add(prefix)
 
-    # Find all src/images/ files whose name starts with any of those prefixes
-    matched = [
-        f"/images/{fname}"
-        for fname in image_files
-        if any(fname.startswith(p) for p in sorted(prefixes))
-    ]
+    # Find all src/images/ files whose name starts with any of those prefixes,
+    # sorted so front views appear before back/side views
+    view_order = {"front": 0, "left-front": 1, "right-front": 2, "left": 3, "right": 4, "back": 5}
+    def view_key(fname):
+        for view, rank in view_order.items():
+            if f"-{view}-" in fname:
+                return rank
+        return 99
+
+    matched = sorted(
+        [f"/images/{fname}" for fname in image_files
+         if any(fname.startswith(p) for p in sorted(prefixes))],
+        key=view_key
+    )
 
     if matched:
         config_by_id[product_id]["images"] = matched

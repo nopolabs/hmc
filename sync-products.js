@@ -75,6 +75,7 @@ async function syncProducts(apiKey) {
     frontendProducts.push({
       name: entry.name,
       slug: entry.slug,
+      description: entry.description ?? '',
       images: entry.images ?? [],
       variants: frontendVariants,
     });

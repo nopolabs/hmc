@@ -1,11 +1,14 @@
 [
   {
-    "name": "HMC crow t-shirt",
-    "slug": "hmc-crow-t-shirt",
+    "name": "Unisex Staple Eco T-Shirt HMC Crow",
+    "slug": "69af06d5cf6119",
+    "description": "The Unisex Staple Eco T-Shirt, made from 65% recycled polyester and 35% recycled cotton, has a soft and comfortable feel.",
     "images": [
-      "/images/hmc-crow-t-shirt-white-front-69af078caa305.png",
-      "/images/hmc-crow-t-shirt-white-front-69af078caa856.png",
-      "/images/hmc-crow-t-shirt-white-front-69af078caacb9.png"
+      "/images/unisex-staple-eco-t-shirt-white-front-69b06a3ade282.png",
+      "/images/unisex-staple-eco-t-shirt-white-front-69b06a3aded55.png",
+      "/images/unisex-staple-eco-t-shirt-white-left-front-69b06a3adf075.png",
+      "/images/unisex-staple-eco-t-shirt-white-left-69b06a3ade70a.png",
+      "/images/unisex-staple-eco-t-shirt-white-right-69b06a3adea09.png"
     ],
     "variants": [
       {
@@ -42,6 +45,92 @@
         "size": "3XL",
         "price": "20.00",
         "printful_variant_id": 5226945179
+      }
+    ]
+  },
+  {
+    "name": "Women’s basic softstyle t-shirt HMC Crow",
+    "slug": "69b05922051f48",
+    "description": "This tee has a semi-fitted cut that follows the body’s natural lines without feeling tight, making it a flattering choice for everyday wear. 100% ring-spun cotton.",
+    "images": [
+      "/images/womens-basic-softstyle-t-shirt-white-front-69b069d224451.png",
+      "/images/womens-basic-softstyle-t-shirt-white-front-69b069d225c40.png",
+      "/images/womens-basic-softstyle-t-shirt-white-right-front-69b069d2266af.png",
+      "/images/womens-basic-softstyle-t-shirt-white-left-69b069d22509f.png",
+      "/images/womens-basic-softstyle-t-shirt-white-right-69b069d2256bf.png",
+      "/images/womens-basic-softstyle-t-shirt-white-back-69b069d224b05.png",
+      "/images/womens-basic-softstyle-t-shirt-white-back-69b069d226182.png"
+    ],
+    "variants": [
+      {
+        "size": "S",
+        "price": "20.00",
+        "printful_variant_id": 5228085838
+      },
+      {
+        "size": "M",
+        "price": "20.00",
+        "printful_variant_id": 5228085839
+      },
+      {
+        "size": "L",
+        "price": "20.00",
+        "printful_variant_id": 5228085840
+      },
+      {
+        "size": "XL",
+        "price": "20.00",
+        "printful_variant_id": 5228085841
+      },
+      {
+        "size": "2XL",
+        "price": "20.00",
+        "printful_variant_id": 5228085842
+      }
+    ]
+  },
+  {
+    "name": "Women's Relaxed T-Shirt HMC Crow",
+    "slug": "69b05a6edf8004",
+    "description": "A relaxed-fit t-shirt designed for everyday wear. It’s made with side seams for structure and shape retention. 100% combed and ring-spun cotton.",
+    "images": [
+      "/images/womens-relaxed-t-shirt-white-front-69b067f0beb84.png",
+      "/images/womens-relaxed-t-shirt-white-left-front-69b067f0bf20f.png",
+      "/images/womens-relaxed-t-shirt-white-right-front-69b067f0bf4c7.png",
+      "/images/womens-relaxed-t-shirt-white-left-69b067f0bf77e.png",
+      "/images/womens-relaxed-t-shirt-white-right-69b067f0bf9ae.png",
+      "/images/womens-relaxed-t-shirt-white-back-69b067f0bef57.png"
+    ],
+    "variants": [
+      {
+        "size": "S",
+        "price": "20.00",
+        "printful_variant_id": 5228091165
+      },
+      {
+        "size": "M",
+        "price": "20.00",
+        "printful_variant_id": 5228091166
+      },
+      {
+        "size": "L",
+        "price": "20.00",
+        "printful_variant_id": 5228091167
+      },
+      {
+        "size": "XL",
+        "price": "20.00",
+        "printful_variant_id": 5228091169
+      },
+      {
+        "size": "2XL",
+        "price": "20.00",
+        "printful_variant_id": 5228091171
+      },
+      {
+        "size": "3XL",
+        "price": "20.00",
+        "printful_variant_id": 5228091172
       }
     ]
   }
