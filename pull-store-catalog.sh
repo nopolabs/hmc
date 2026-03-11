@@ -28,9 +28,10 @@ echo "Generating products-config.json"
 jq -s '[.[] | {
   slug: .result.sync_product.external_id,
   name: .result.sync_product.name,
+  description: "",
   images: ([.result.sync_variants[].files[] | select(.type == "preview") | .preview_url] | unique),
   printful_product_id: .result.sync_product.id,
-  retail_price: 100.00,
+  retail_price: 20.00,
   active: true
 }]' tmp/product-*.json > products-config.json
 echo "Done: products-config.json"
