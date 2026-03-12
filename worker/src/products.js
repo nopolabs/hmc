@@ -111,5 +111,34 @@ export const PRODUCTS = {
 				"printful_variant_id": 5230267417
 			}
 		}
+	},
+	"69b2f6abe68db2": {
+		"name": "Black Unisex t-shirt HMC Crow",
+		"variants": {
+			"XS": {
+				"price": 2000,
+				"printful_variant_id": 5230773689
+			},
+			"S": {
+				"price": 2000,
+				"printful_variant_id": 5230773690
+			},
+			"M": {
+				"price": 2000,
+				"printful_variant_id": 5230773691
+			},
+			"L": {
+				"price": 2000,
+				"printful_variant_id": 5230773692
+			},
+			"XL": {
+				"price": 2000,
+				"printful_variant_id": 5230773693
+			},
+			"2XL": {
+				"price": 2000,
+				"printful_variant_id": 5230773694
+			}
+		}
 	}
 };

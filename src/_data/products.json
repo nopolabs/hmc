@@ -170,5 +170,47 @@
         "printful_variant_id": 5230267417
       }
     ]
+  },
+  {
+    "name": "Black Unisex t-shirt HMC Crow",
+    "slug": "69b2f6abe68db2",
+    "description": "The Unisex Staple T-Shirt feels soft and light with just the right amount of stretch. It's comfortable and flattering for all. We can't compliment this shirt enough–it's one of our crowd favorites, and it's sure to be your next favorite too! ",
+    "images": [
+      "/images/unisex-staple-t-shirt-vintage-black-front-69b2f7045ffef.png",
+      "/images/unisex-staple-t-shirt-vintage-black-back-69b2f7046044a.png",
+      "/images/unisex-staple-t-shirt-vintage-black-front-and-back-69b2f704606dd.png"
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "price": "20.00",
+        "printful_variant_id": 5230773689
+      },
+      {
+        "size": "S",
+        "price": "20.00",
+        "printful_variant_id": 5230773690
+      },
+      {
+        "size": "M",
+        "price": "20.00",
+        "printful_variant_id": 5230773691
+      },
+      {
+        "size": "L",
+        "price": "20.00",
+        "printful_variant_id": 5230773692
+      },
+      {
+        "size": "XL",
+        "price": "20.00",
+        "printful_variant_id": 5230773693
+      },
+      {
+        "size": "2XL",
+        "price": "20.00",
+        "printful_variant_id": 5230773694
+      }
+    ]
   }
 ]
