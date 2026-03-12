@@ -24,14 +24,14 @@ for PRODUCT_ID in $(jq '.result[].id' tmp/store-${STORE_ID}.json); do
     > tmp/product-${PRODUCT_ID}.json
 done
 
-echo "Generating products-config.json"
-jq -s '[.[] | {
-  slug: .result.sync_product.external_id,
-  name: .result.sync_product.name,
-  description: "",
-  images: ([.result.sync_variants[].files[] | select(.type == "preview") | .preview_url] | unique),
-  printful_product_id: .result.sync_product.id,
-  retail_price: 20.00,
-  active: true
-}]' tmp/product-*.json > products-config.json
-echo "Done: products-config.json"
+#echo "Generating products-config.json"
+#jq -s '[.[] | {
+#  slug: .result.sync_product.external_id,
+#  name: .result.sync_product.name,
+#  description: "",
+#  images: ([.result.sync_variants[].files[] | select(.type == "preview") | .preview_url] | unique),
+#  printful_product_id: .result.sync_product.id,
+#  retail_price: 20.00,
+#  active: true
+#}]' tmp/product-*.json > products-config.json
+#echo "Done: products-config.json"

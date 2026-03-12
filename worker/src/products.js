@@ -86,5 +86,30 @@ export const PRODUCTS = {
 				"printful_variant_id": 5228091172
 			}
 		}
+	},
+	"69b246101f9e58": {
+		"name": "Pink Women’s basic softstyle t-shirt HMC Crow",
+		"variants": {
+			"S": {
+				"price": 2000,
+				"printful_variant_id": 5230267413
+			},
+			"M": {
+				"price": 2000,
+				"printful_variant_id": 5230267414
+			},
+			"L": {
+				"price": 2000,
+				"printful_variant_id": 5230267415
+			},
+			"XL": {
+				"price": 2000,
+				"printful_variant_id": 5230267416
+			},
+			"2XL": {
+				"price": 2000,
+				"printful_variant_id": 5230267417
+			}
+		}
 	}
 };

@@ -132,5 +132,43 @@
         "printful_variant_id": 5228091172
       }
     ]
+  },
+  {
+    "name": "Pink Women’s basic softstyle t-shirt HMC Crow",
+    "slug": "69b246101f9e58",
+    "description": "A relaxed-fit t-shirt designed for everyday wear. It’s made with side seams for structure and shape retention. 100% combed and ring-spun cotton.",
+    "images": [
+      "/images/womens-basic-softstyle-t-shirt-azalea-back-69b209fd82d6b.png",
+      "/images/womens-basic-softstyle-t-shirt-azalea-back-69b209fd823de.png",
+      "/images/womens-basic-softstyle-t-shirt-azalea-front-69b209fd81b41.png",
+      "/images/womens-basic-softstyle-t-shirt-azalea-front-69b209fd828be.png"
+    ],
+    "variants": [
+      {
+        "size": "S",
+        "price": "20.00",
+        "printful_variant_id": 5230267413
+      },
+      {
+        "size": "M",
+        "price": "20.00",
+        "printful_variant_id": 5230267414
+      },
+      {
+        "size": "L",
+        "price": "20.00",
+        "printful_variant_id": 5230267415
+      },
+      {
+        "size": "XL",
+        "price": "20.00",
+        "printful_variant_id": 5230267416
+      },
+      {
+        "size": "2XL",
+        "price": "20.00",
+        "printful_variant_id": 5230267417
+      }
+    ]
   }
 ]
