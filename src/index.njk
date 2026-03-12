@@ -9,6 +9,9 @@ layout: layout.njk
 
 <div class="products">
   {% for product in products %}
+    {% set pmTable = product.size_guide.product_measure %}
+    {% set myTable = product.size_guide.measure_yourself %}
+
     <div class="product-card">
       <div class="product-image-wrapper">
         <img class="product-main-image" src="{{ product.images[0] }}" alt="{{ product.name }}">
@@ -26,6 +29,9 @@ layout: layout.njk
       </div>
       {% if product.description %}
         <p class="product-description">{{ product.description }}</p>
+      {% endif %}
+      {% if product.size_guide %}
+        <button class="sg-trigger" data-size-guide="{{ product.slug }}" type="button">Size guide</button>
       {% endif %}
       <form action="/checkout" method="GET">
         <input type="hidden" name="slug" value="{{ product.slug }}">
@@ -45,5 +51,115 @@ layout: layout.njk
         {% endif %}
       </form>
     </div>
+
+    {% if product.size_guide %}
+    <div class="sg-overlay" id="sg-{{ product.slug }}" hidden>
+      <div class="sg-modal" role="dialog" aria-modal="true" aria-labelledby="sg-title-{{ product.slug }}">
+        <div class="sg-header">
+          <h2 id="sg-title-{{ product.slug }}">Size guide</h2>
+          <button class="sg-close" aria-label="Close">&#215;</button>
+        </div>
+        <div class="sg-tabs">
+          {% if pmTable %}<button class="sg-tab active" data-tab="pm" type="button">Product measurements</button>{% endif %}
+          {% if myTable %}<button class="sg-tab" data-tab="my" type="button">Measure yourself</button>{% endif %}
+        </div>
+
+        {% if pmTable %}
+        <div class="sg-panel" data-panel="pm">
+          <div class="sg-diagram">
+            <img src="{{ pmTable.image_url }}" alt="Product measurement diagram">
+            <div class="sg-diagram-desc">{{ pmTable.image_description | safe }}</div>
+          </div>
+          <table class="sg-table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                {% for m in pmTable.measurements %}<th>{{ m.type_label }}</th>{% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in range(pmTable.measurements[0].values | length) %}
+                {% set row = pmTable.measurements[0].values[i] %}
+                <tr>
+                  <td>{{ row.size }}</td>
+                  {% for m in pmTable.measurements %}
+                    {% set v = m.values[i] %}
+                    <td>{% if v.value %}{{ v.value }}{% else %}{{ v.min_value }}–{{ v.max_value }}{% endif %}</td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <p class="sg-note">All measurements in inches. May vary by up to 2&#8243; (5&nbsp;cm).</p>
+        </div>
+        {% endif %}
+
+        {% if myTable %}
+        <div class="sg-panel" data-panel="my" hidden>
+          <div class="sg-diagram">
+            <img src="{{ myTable.image_url }}" alt="Measure yourself diagram">
+            <div class="sg-diagram-desc">{{ myTable.image_description | safe }}</div>
+          </div>
+          <table class="sg-table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                {% for m in myTable.measurements %}<th>{{ m.type_label }}</th>{% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in range(myTable.measurements[0].values | length) %}
+                {% set row = myTable.measurements[0].values[i] %}
+                <tr>
+                  <td>{{ row.size }}</td>
+                  {% for m in myTable.measurements %}
+                    {% set v = m.values[i] %}
+                    <td>{% if v.value %}{{ v.value }}{% else %}{{ v.min_value }}–{{ v.max_value }}{% endif %}</td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <p class="sg-note">All measurements in inches. May vary by up to 2&#8243; (5&nbsp;cm).</p>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+    {% endif %}
   {% endfor %}
 </div>
+
+<script>
+  document.querySelectorAll('[data-size-guide]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('sg-' + btn.dataset.sizeGuide).removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeSg(overlay) {
+    overlay.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.sg-overlay').forEach(overlay => {
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeSg(overlay); });
+    overlay.querySelector('.sg-close').addEventListener('click', () => closeSg(overlay));
+  });
+
+  document.querySelectorAll('.sg-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const modal = tab.closest('.sg-modal');
+      modal.querySelectorAll('.sg-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      modal.querySelectorAll('.sg-panel').forEach(p => p.hidden = true);
+      modal.querySelector('[data-panel="' + tab.dataset.tab + '"]').hidden = false;
+    });
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape')
+      document.querySelectorAll('.sg-overlay:not([hidden])').forEach(closeSg);
+  });
+</script>

@@ -72,12 +72,20 @@ async function syncProducts(apiKey) {
       frontendVariants.push({ size, price: entry.retail_price.toFixed(2), printful_variant_id: v.id });
     }
 
+    const catalogProductId = product.sync_variants[0].product.product_id;
+    console.log(`Fetching size guide for catalog product ${catalogProductId}...`);
+    const sizeData = await printfulGet(`/products/${catalogProductId}/sizes`, apiKey);
+
     frontendProducts.push({
       name: entry.name,
       slug: entry.slug,
       description: entry.description ?? '',
       images: entry.images ?? [],
       variants: frontendVariants,
+      size_guide: {
+        product_measure: sizeData.size_tables.find(t => t.type === 'product_measure'),
+        measure_yourself: sizeData.size_tables.find(t => t.type === 'measure_yourself'),
+      },
     });
 
     workerProducts[entry.slug] = { name: entry.name, variants };
