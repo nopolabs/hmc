@@ -104,7 +104,7 @@ async function syncProducts(apiKey) {
 
   console.log('\nDone. Next steps:');
   console.log('  Deploy the worker:        cd worker && npm run deploy');
-  console.log('  Commit and push the site: git add src/_data/products.json && git commit -m "sync products" && git push\n');
+  console.log('  Commit and push the site: git add . && git commit -m "sync products" && git push\n');
 }
 
 const apiKey = loadApiKey();

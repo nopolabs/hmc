@@ -7,8 +7,9 @@ export default {
 	async fetch(request, env, ctx) {
 		const url = new URL(request.url);
 
-		if (request.method === 'GET' && url.pathname === '/checkout') {
-			return handleCheckout(request, env, url);
+		if (url.pathname === '/checkout') {
+			if (request.method === 'POST') return handleCartCheckout(request, env);
+			if (request.method === 'GET') return handleCheckout(request, env, url);
 		}
 
 		if (request.method === 'POST' && url.pathname === '/webhook') {
@@ -19,6 +20,69 @@ export default {
 	}
 };
 
+function shippingOption(totalItems) {
+	const amount = 475 + Math.max(0, totalItems - 1) * 220;
+	return {
+		shipping_rate_data: {
+			type: 'fixed_amount',
+			fixed_amount: { amount, currency: 'usd' },
+			display_name: 'Standard Shipping',
+			delivery_estimate: {
+				minimum: { unit: 'business_day', value: 5 },
+				maximum: { unit: 'business_day', value: 10 },
+			},
+		},
+	};
+}
+
+async function handleCartCheckout(request, env) {
+	let body;
+	try {
+		body = await request.json();
+	} catch {
+		return new Response('Invalid JSON', { status: 400 });
+	}
+
+	const { items } = body;
+	if (!Array.isArray(items) || items.length === 0) {
+		return new Response('Cart is empty', { status: 400 });
+	}
+
+	const lineItems = [];
+	for (const item of items) {
+		const productDef = PRODUCTS[item.slug];
+		if (!productDef) return new Response(`Product not found: ${item.slug}`, { status: 400 });
+		const variant = productDef.variants[item.size];
+		if (!variant) return new Response(`Size not found: ${item.size}`, { status: 400 });
+		lineItems.push({
+			price_data: {
+				currency: 'usd',
+				product_data: { name: `${productDef.name} (${item.size})` },
+				unit_amount: variant.price,
+			},
+			quantity: item.qty || 1,
+		});
+	}
+
+	const totalItems = items.reduce((s, i) => s + (i.qty || 1), 0);
+	const stripe = new Stripe(env.STRIPE_SECRET_KEY);
+	const session = await stripe.checkout.sessions.create({
+		payment_method_types: ['card'],
+		line_items: lineItems,
+		mode: 'payment',
+		shipping_address_collection: { allowed_countries: ['US'] },
+		shipping_options: [shippingOption(totalItems)],
+		metadata: { items: JSON.stringify(items) },
+		success_url: 'https://hmc-cycling.org/success',
+		cancel_url: 'https://hmc-cycling.org/',
+	});
+
+	return new Response(JSON.stringify({ url: session.url }), {
+		headers: { 'Content-Type': 'application/json' },
+	});
+}
+
+// Legacy single-item GET endpoint
 async function handleCheckout(request, env, url) {
 	const slug = url.searchParams.get('slug');
 	const size = url.searchParams.get('size');
@@ -46,31 +110,11 @@ async function handleCheckout(request, env, url) {
 			quantity: 1,
 		}],
 		mode: 'payment',
-		shipping_address_collection: {
-			allowed_countries: ['US'],
-		},
-		shipping_options: [
-			{
-				shipping_rate_data: {
-					type: 'fixed_amount',
-					fixed_amount: {
-						amount: 449,
-						currency: 'usd',
-					},
-					display_name: 'Standard Shipping',
-					delivery_estimate: {
-						minimum: { unit: 'business_day', value: 5 },
-						maximum: { unit: 'business_day', value: 10 },
-					},
-				},
-			},
-		],
-		metadata: {
-			slug: slug,
-			size: size,
-		},
-		success_url: `https://hmc-cycling.org/success`,
-		cancel_url: `https://hmc-cycling.org/`,
+		shipping_address_collection: { allowed_countries: ['US'] },
+		shipping_options: [shippingOption(1)],
+		metadata: { items: JSON.stringify([{ slug, size, qty: 1 }]) },
+		success_url: 'https://hmc-cycling.org/success',
+		cancel_url: 'https://hmc-cycling.org/',
 	});
 
 	return Response.redirect(session.url, 303);
@@ -113,10 +157,20 @@ async function handleWebhook(request, env, ctx) {
 }
 
 async function createPrintfulOrder(session, env) {
-	const slug = session.metadata.slug;
-	const size = session.metadata.size;
-	const variant = PRODUCTS[slug].variants[size];
+	const cartItems = JSON.parse(session.metadata.items);
 	const shipping = session.collected_information.shipping_details;
+
+	let subtotal = 0;
+	const printfulItems = cartItems.map(item => {
+		const variant = PRODUCTS[item.slug].variants[item.size];
+		const lineTotal = (variant.price / 100) * item.qty;
+		subtotal += lineTotal;
+		return {
+			sync_variant_id: variant.printful_variant_id,
+			quantity: item.qty,
+			retail_price: (variant.price / 100).toFixed(2),
+		};
+	});
 
 	const order = {
 		recipient: {
@@ -129,14 +183,10 @@ async function createPrintfulOrder(session, env) {
 			zip: shipping.address.postal_code,
 			email: session.customer_details.email,
 		},
-		items: [{
-			sync_variant_id: variant.printful_variant_id,
-			quantity: 1,
-			retail_price: (variant.price / 100).toFixed(2),
-		}],
+		items: printfulItems,
 		retail_costs: {
 			currency: 'USD',
-			subtotal: (variant.price / 100).toFixed(2),
+			subtotal: subtotal.toFixed(2),
 		}
 	};
 

@@ -33,23 +33,25 @@ layout: layout.njk
       {% if product.size_guide %}
         <button class="sg-trigger" data-size-guide="{{ product.slug }}" type="button">Size guide</button>
       {% endif %}
-      <form action="/checkout" method="GET">
-        <input type="hidden" name="slug" value="{{ product.slug }}">
-        <div>
+      <div class="product-actions"
+           data-slug="{{ product.slug }}"
+           data-name="{{ product.name }}"
+           data-image="{{ product.images[0] }}">
+        <div class="size-select-row">
           Size:
-          <select name="size" required>
+          <select class="size-select" required>
             <option value="" selected disabled>Select</option>
             {% for variant in product.variants %}
-              <option value="{{ variant.size }}">{{ variant.size }}</option>
+              <option value="{{ variant.size }}" data-price="{{ variant.price }}">{{ variant.size }}</option>
             {% endfor %}
           </select>
         </div>
         {% if site.preview %}
           <p class="preview-message">Coming soon — we'd love your feedback!</p>
         {% else %}
-          <button type="submit" class="buy-button">Buy Now</button>
+          <button type="button" class="buy-button add-to-cart-btn">Add to Cart</button>
         {% endif %}
-      </form>
+      </div>
     </div>
 
     {% if product.size_guide %}
@@ -161,5 +163,26 @@ layout: layout.njk
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape')
       document.querySelectorAll('.sg-overlay:not([hidden])').forEach(closeSg);
+  });
+
+  document.querySelectorAll('.product-actions').forEach(actions => {
+    const btn = actions.querySelector('.add-to-cart-btn');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const select = actions.querySelector('.size-select');
+      if (!select.value) {
+        select.focus();
+        select.reportValidity();
+        return;
+      }
+      const opt = select.options[select.selectedIndex];
+      Cart.add(
+        actions.dataset.slug,
+        actions.dataset.name,
+        select.value,
+        parseFloat(opt.dataset.price),
+        actions.dataset.image
+      );
+    });
   });
 </script>
