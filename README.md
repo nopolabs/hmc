@@ -1,6 +1,6 @@
-# HMC — HMC (Option 4: Stripe + Cloudflare Workers)
+# HMC — HMC-Cycling.org
 
-A static ecommerce site built with Eleventy and deployed to Cloudflare Pages, using Stripe for payment processing and a Cloudflare Worker for the checkout and fulfillment backend. Printful is integrated directly via API for print-on-demand fulfillment.
+A static ecommerce site built with Eleventy and deployed to Cloudflare Pages, using Stripe for payment processing and a Cloudflare Worker for checkout and fulfillment. Printful is integrated via API for print-on-demand fulfillment.
 
 **Live site:** https://hmc-cycling.org
 
@@ -31,50 +31,73 @@ A static ecommerce site built with Eleventy and deployed to Cloudflare Pages, us
 hmc/
 ├── src/
 │   ├── _includes/
-│   │   └── layout.njk        # Shared HTML layout (nav, footer, head)
+│   │   └── layout.njk        # Shared HTML layout (nav, footer, cart drawer + JS)
 │   ├── _data/
-│   │   └── products.json     # Product catalog — edit this to add/change products
+│   │   ├── products.json     # Generated product catalog — do not edit directly
+│   │   └── site.json         # Site-wide flags (e.g. preview mode)
 │   ├── images/               # Product photos
 │   ├── styles.css            # Site styles
-│   ├── index.njk             # Home page with product cards and Buy Now links
+│   ├── index.njk             # Home page — product cards with Add to Cart
 │   ├── about.njk             # About page
 │   ├── contact.njk           # Contact page
-│   └── success.njk           # Order confirmation page
+│   └── success.njk           # Order confirmation page (clears cart)
 ├── worker/
 │   ├── src/
-│   │   └── index.js          # Cloudflare Worker — checkout and webhook handlers
+│   │   ├── index.js          # Cloudflare Worker — checkout and webhook handlers
+│   │   └── products.js       # Generated product catalog for Worker — do not edit directly
 │   ├── wrangler.json         # Worker configuration
 │   ├── .dev.vars             # Local secrets (never commit — in .gitignore)
 │   └── package.json
-├── .eleventy.js              # Eleventy config (input: src/, output: _site/)
+├── products-config.json      # Source of truth for product definitions
+├── sync-products.js          # Syncs products from Printful → products.json + products.js
+├── eleventy.config.cjs       # Eleventy config (input: src/, output: _site/)
 ├── package.json
 └── .gitignore
 ```
 
 ## How it works
 
-1. Customer clicks **Buy Now** on a product
-2. Request hits the Worker at `GET /checkout?slug=product-slug`
-3. Worker creates a Stripe Checkout Session and redirects customer to Stripe's hosted payment page
-4. Customer completes payment on Stripe
-5. Stripe fires a `checkout.session.completed` webhook to `POST /webhook`
-6. Worker validates the Stripe webhook signature
-7. Worker checks Cloudflare KV for idempotency (prevents duplicate orders on webhook retries)
-8. Worker creates a Printful order via the Printful API
-9. Worker confirms the Printful order (moves from `draft` to `pending` → fulfillment begins)
-10. Customer is redirected to `/success`
+1. Customer browses products and clicks **Add to Cart** (size must be selected)
+2. Cart state is stored in `localStorage` and shown in a cart drawer
+3. Customer clicks **Checkout** in the cart drawer
+4. Browser POSTs cart items to `POST /checkout` on the Worker
+5. Worker builds Stripe line items and creates a Checkout Session, returns the Stripe URL
+6. Browser redirects customer to Stripe's hosted payment page
+7. Customer completes payment on Stripe; Stripe sends a receipt email automatically
+8. Stripe fires a `checkout.session.completed` webhook to `POST /webhook`
+9. Worker validates the Stripe webhook signature
+10. Worker checks Cloudflare KV for idempotency (prevents duplicate orders on retries)
+11. Worker creates and confirms a Printful order via the Printful API
+12. Customer is redirected to `/success`, which clears the cart
+
+## Shipping
+
+Shipping is US-only, calculated per order at checkout:
+
+- First item: **$4.75**
+- Each additional item: **+$2.20**
+
+This matches Printful's actual shipping rates for t-shirts. The amount is calculated in the Worker and passed to Stripe when the session is created.
+
+## Preview mode
+
+`src/_data/site.json` has a `preview` flag. When `true`:
+- Products can be added to the cart normally
+- The Checkout button in the cart is disabled and shows "Coming soon"
+
+Useful for sharing the site for feedback before going live.
 
 ## Local development
 
 ```bash
 # Eleventy site
 npm install
-npm start            # starts dev server at http://localhost:8080
+npm start            # dev server at http://localhost:8080
 
 # Worker
 cd worker
 npm install
-npm run dev          # starts Worker at http://localhost:8787
+npm run dev          # Worker at http://localhost:8787
 ```
 
 ### Local secrets
@@ -95,46 +118,25 @@ Install the Stripe CLI and run:
 stripe listen --forward-to http://localhost:8787/webhook
 ```
 
-This forwards Stripe webhook events to your local Worker and outputs the local `STRIPE_WEBHOOK_SECRET` to use in `.dev.vars`.
+This forwards Stripe webhook events to your local Worker and prints the `STRIPE_WEBHOOK_SECRET` to use in `.dev.vars`.
 
 ## Adding or changing products
 
-Edit `src/_data/products.json`. Each product needs:
+`products-config.json` is the single source of truth. Never edit `src/_data/products.json` or `worker/src/products.js` directly — they are generated files.
 
-```json
-{
-  "name": "Product Name",
-  "price": "27.00",
-  "slug": "product-slug",
-  "image": "/images/product-image.jpg"
-}
-```
-
-Also update the `PRODUCTS` catalog in `worker/src/index.js`:
-
-```javascript
-const PRODUCTS = {
-  'product-slug': {
-    name: 'Product Name',
-    price: 2700,           // in cents
-    printful_variant_id: XXXXXXXXXX,
-  }
-};
-```
-
-### Finding Printful variant IDs
+To add or update a product, edit `products-config.json` then run:
 
 ```bash
-# List products in your Printful API store
-curl -H "Authorization: Bearer YOUR_PRINTFUL_API_KEY" \
-  "https://api.printful.com/store/products?store_id=YOUR_STORE_ID"
-
-# Get variant ID for a specific product
-curl -H "Authorization: Bearer YOUR_PRINTFUL_API_KEY" \
-  "https://api.printful.com/store/products/PRODUCT_ID?store_id=YOUR_STORE_ID"
+npm run sync
 ```
 
-Use the `sync_variants[0].id` value as the `printful_variant_id`.
+This fetches current variant and sizing data from Printful and regenerates both output files.
+
+To list available products in your Printful store:
+
+```bash
+node sync-products.js --list
+```
 
 ## Deployment
 
@@ -147,16 +149,17 @@ Deployment is automatic — push to `main` on GitHub and Cloudflare Pages builds
 
 ### Cloudflare Worker
 
+Deploy worker first, then push frontend changes.
+
 ```bash
 cd worker
 npm run deploy
 ```
 
-Worker is deployed to: `https://hmc-worker.danrevel.workers.dev`
+Worker URL: `https://hmc-worker.danrevel.workers.dev`
+Worker routes: `hmc-cycling.org/checkout*` and `hmc-cycling.org/webhook*`
 
 ### Production secrets
-
-Set production secrets in Cloudflare (not in wrangler.json):
 
 ```bash
 cd worker
@@ -168,16 +171,14 @@ npx wrangler secret put PRINTFUL_API_KEY
 ## Printful setup
 
 - Store type: **Manual Order / API** (not Squarespace or Shopify)
-- Store ID: 17783389
-- Products must be created and synced in this store specifically
-- The API token must be scoped to this store with order read/write permissions
+- Store ID: `17828143`
+- Products must be created and synced in this store
+- API token must have order read/write permissions scoped to this store
 
 ## Idempotency
 
-Stripe retries webhooks multiple times on failure. To prevent duplicate Printful orders, each processed Stripe session ID is stored in Cloudflare KV (`ORDERS` namespace). Subsequent webhook retries for the same session are ignored.
+Stripe retries webhooks on failure. To prevent duplicate Printful orders, each processed Stripe session ID is stored in Cloudflare KV (`ORDERS` namespace) with a 30-day TTL. Subsequent webhook retries for the same session are ignored.
 
-KV entries expire after 30 days.
+## Customer emails
 
-## Going live checklist
-
-- [ ] Enable Stripe confirmation emails in Stripe dashboard
+Receipt emails are sent automatically by Stripe after payment. Enable in the Stripe Dashboard under **Settings → Business → Customer emails → Successful payments**.
