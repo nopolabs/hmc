@@ -246,6 +246,16 @@ nav {
   background-color: var(--accent);
 }
 
+.buy-button:disabled {
+  background-color: var(--border);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.buy-button:disabled:hover {
+  background-color: var(--border);
+}
+
 /* ── Preview mode ───────────────────────────────────────── */
 .preview-message {
   font-size: 0.8rem;
