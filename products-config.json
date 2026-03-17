@@ -1,5 +1,32 @@
 [
   {
+    "slug": "69b246101f9e58",
+    "name": "Pink Women’s basic softstyle t-shirt HMC Crow",
+    "description": "This tee has a semi-fitted cut that follows the body’s natural lines without feeling tight, making it a flattering choice for everyday wear. 100% ring-spun cotton.",
+    "images": [
+      "/images/womens-basic-softstyle-t-shirt-azalea-back-69b209fd82d6b.png",
+      "/images/womens-basic-softstyle-t-shirt-azalea-back-69b209fd823de.png",
+      "/images/womens-basic-softstyle-t-shirt-azalea-front-69b209fd81b41.png",
+      "/images/womens-basic-softstyle-t-shirt-azalea-front-69b209fd828be.png"
+    ],
+    "printful_product_id": 423438586,
+    "retail_price": 20.0,
+    "active": true
+  },
+  {
+    "slug": "69b2f6abe68db2",
+    "name": "Black Unisex t-shirt HMC Crow",
+    "description": "The Unisex Staple T-Shirt feels soft and light with just the right amount of stretch. It's comfortable and flattering for all. We can't compliment this shirt enough–it's one of our crowd favorites, and it's sure to be your next favorite too! ",
+    "images": [
+      "/images/unisex-staple-t-shirt-vintage-black-front-69b2f7045ffef.png",
+      "/images/unisex-staple-t-shirt-vintage-black-back-69b2f7046044a.png",
+      "/images/unisex-staple-t-shirt-vintage-black-front-and-back-69b2f704606dd.png"
+    ],
+    "printful_product_id": 423519751,
+    "retail_price": 20.0,
+    "active": true
+  },
+  {
     "slug": "69af06d5cf6119",
     "name": "Unisex Staple Eco T-Shirt HMC Crow",
     "description": "The Unisex Staple Eco T-Shirt, made from 65% recycled polyester and 35% recycled cotton, has a soft and comfortable feel.",
@@ -43,33 +70,6 @@
       "/images/womens-relaxed-t-shirt-white-right-69b067f0bf9ae.png"
     ],
     "printful_product_id": 423235297,
-    "retail_price": 20.0,
-    "active": true
-  },
-  {
-    "slug": "69b246101f9e58",
-    "name": "Pink Women’s basic softstyle t-shirt HMC Crow",
-    "description": "This tee has a semi-fitted cut that follows the body’s natural lines without feeling tight, making it a flattering choice for everyday wear. 100% ring-spun cotton.",
-    "images": [
-      "/images/womens-basic-softstyle-t-shirt-azalea-back-69b209fd82d6b.png",
-      "/images/womens-basic-softstyle-t-shirt-azalea-back-69b209fd823de.png",
-      "/images/womens-basic-softstyle-t-shirt-azalea-front-69b209fd81b41.png",
-      "/images/womens-basic-softstyle-t-shirt-azalea-front-69b209fd828be.png"
-    ],
-    "printful_product_id": 423438586,
-    "retail_price": 20.0,
-    "active": true
-  },
-  {
-    "slug": "69b2f6abe68db2",
-    "name": "Black Unisex t-shirt HMC Crow",
-    "description": "The Unisex Staple T-Shirt feels soft and light with just the right amount of stretch. It's comfortable and flattering for all. We can't compliment this shirt enough–it's one of our crowd favorites, and it's sure to be your next favorite too! ",
-    "images": [
-      "/images/unisex-staple-t-shirt-vintage-black-front-69b2f7045ffef.png",
-      "/images/unisex-staple-t-shirt-vintage-black-back-69b2f7046044a.png",
-      "/images/unisex-staple-t-shirt-vintage-black-front-and-back-69b2f704606dd.png"
-    ],
-    "printful_product_id": 423519751,
     "retail_price": 20.0,
     "active": true
   }
