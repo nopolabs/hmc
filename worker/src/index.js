@@ -1,5 +1,6 @@
 import Stripe from 'stripe';
 import { PRODUCTS } from './products.js';
+import SHIPPING from '../../src/_data/shipping.json';
 
 const PRINTFUL_STORE_ID = 17828143;
 
@@ -21,15 +22,15 @@ export default {
 };
 
 function shippingOption(totalItems) {
-	const amount = 475 + Math.max(0, totalItems - 1) * 220;
+	const amount = SHIPPING.base_rate + Math.max(0, totalItems - 1) * SHIPPING.per_additional_item;
 	return {
 		shipping_rate_data: {
 			type: 'fixed_amount',
 			fixed_amount: { amount, currency: 'usd' },
-			display_name: 'Standard Shipping',
+			display_name: SHIPPING.display_name,
 			delivery_estimate: {
-				minimum: { unit: 'business_day', value: 5 },
-				maximum: { unit: 'business_day', value: 10 },
+				minimum: SHIPPING.delivery_estimate.minimum,
+				maximum: SHIPPING.delivery_estimate.maximum,
 			},
 		},
 	};
