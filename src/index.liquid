@@ -1,6 +1,6 @@
 ---
 title: Home
-layout: layout.njk
+layout: layout.liquid
 ---
 
 <div class="hero">
@@ -9,14 +9,14 @@ layout: layout.njk
 
 <div class="products">
   {% for product in products %}
-    {% set pmTable = product.size_guide.product_measure %}
-    {% set myTable = product.size_guide.measure_yourself %}
+    {% assign pmTable = product.size_guide.product_measure %}
+    {% assign myTable = product.size_guide.measure_yourself %}
 
     <div class="product-card">
       <div class="product-image-wrapper">
         <img class="product-main-image" src="{{ product.images[0] }}" alt="{{ product.name }}">
       </div>
-      {% if product.images.length > 1 %}
+      {% if product.images.size > 1 %}
         <div class="product-thumbnails">
           {% for img in product.images %}
             <img src="{{ img }}" alt="{{ product.name }}" onclick="this.closest('.product-card').querySelector('.product-main-image').src = this.src">
@@ -66,7 +66,7 @@ layout: layout.njk
         <div class="sg-panel" data-panel="pm">
           <div class="sg-diagram">
             <img src="{{ pmTable.image_url }}" alt="Product measurement diagram">
-            <div class="sg-diagram-desc">{{ pmTable.image_description | safe }}</div>
+            <div class="sg-diagram-desc">{{ pmTable.image_description }}</div>
           </div>
           <table class="sg-table">
             <thead>
@@ -76,12 +76,12 @@ layout: layout.njk
               </tr>
             </thead>
             <tbody>
-              {% for i in range(pmTable.measurements[0].values | length) %}
-                {% set row = pmTable.measurements[0].values[i] %}
+              {% for row in pmTable.measurements[0].values %}
+                {% assign rowIndex = forloop.index0 %}
                 <tr>
                   <td>{{ row.size }}</td>
                   {% for m in pmTable.measurements %}
-                    {% set v = m.values[i] %}
+                    {% assign v = m.values[rowIndex] %}
                     <td>{% if v.value %}{{ v.value }}{% else %}{{ v.min_value }}–{{ v.max_value }}{% endif %}</td>
                   {% endfor %}
                 </tr>
@@ -96,7 +96,7 @@ layout: layout.njk
         <div class="sg-panel" data-panel="my" hidden>
           <div class="sg-diagram">
             <img src="{{ myTable.image_url }}" alt="Measure yourself diagram">
-            <div class="sg-diagram-desc">{{ myTable.image_description | safe }}</div>
+            <div class="sg-diagram-desc">{{ myTable.image_description }}</div>
           </div>
           <table class="sg-table">
             <thead>
@@ -106,12 +106,12 @@ layout: layout.njk
               </tr>
             </thead>
             <tbody>
-              {% for i in range(myTable.measurements[0].values | length) %}
-                {% set row = myTable.measurements[0].values[i] %}
+              {% for row in myTable.measurements[0].values %}
+                {% assign rowIndex = forloop.index0 %}
                 <tr>
                   <td>{{ row.size }}</td>
                   {% for m in myTable.measurements %}
-                    {% set v = m.values[i] %}
+                    {% assign v = m.values[rowIndex] %}
                     <td>{% if v.value %}{{ v.value }}{% else %}{{ v.min_value }}–{{ v.max_value }}{% endif %}</td>
                   {% endfor %}
                 </tr>
