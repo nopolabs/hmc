@@ -10,7 +10,6 @@ export default {
 
 		if (url.pathname === '/checkout') {
 			if (request.method === 'POST') return handleCartCheckout(request, env);
-			if (request.method === 'GET') return handleCheckout(request, env, url);
 		}
 
 		if (request.method === 'POST' && url.pathname === '/webhook') {
@@ -81,44 +80,6 @@ async function handleCartCheckout(request, env) {
 	return new Response(JSON.stringify({ url: session.url }), {
 		headers: { 'Content-Type': 'application/json' },
 	});
-}
-
-// Legacy single-item GET endpoint
-async function handleCheckout(request, env, url) {
-	const slug = url.searchParams.get('slug');
-	const size = url.searchParams.get('size');
-	const productDef = PRODUCTS[slug];
-
-	if (!productDef) {
-		return new Response('Product not found', { status: 404 });
-	}
-
-	const variant = productDef.variants[size];
-	if (!variant) {
-		return new Response('Size not found', { status: 404 });
-	}
-
-	const stripe = new Stripe(env.STRIPE_SECRET_KEY);
-
-	const session = await stripe.checkout.sessions.create({
-		payment_method_types: ['card'],
-		line_items: [{
-			price_data: {
-				currency: 'usd',
-				product_data: { name: `${productDef.name} (${size})` },
-				unit_amount: variant.price,
-			},
-			quantity: 1,
-		}],
-		mode: 'payment',
-		shipping_address_collection: { allowed_countries: ['US'] },
-		shipping_options: [shippingOption(1)],
-		metadata: { items: JSON.stringify([{ slug, size, qty: 1 }]) },
-		success_url: 'https://hmc-cycling.org/success',
-		cancel_url: 'https://hmc-cycling.org/',
-	});
-
-	return Response.redirect(session.url, 303);
 }
 
 async function handleWebhook(request, env, ctx) {
