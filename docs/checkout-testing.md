@@ -15,6 +15,42 @@ Stripe has fully separate **test** and **live** environments, each with their ow
 
 ---
 
+## Secret management
+
+Secrets are stored in two local files (both gitignored):
+
+| File | Purpose |
+|---|---|
+| `worker/.dev.vars` | Test mode secrets (`sk_test_...`) |
+| `worker/.prod.vars` | Live mode secrets (`sk_live_...`) |
+
+Copy the example files to get started:
+```bash
+cp worker/.dev.vars.example worker/.dev.vars    # fill in test keys
+cp worker/.prod.vars.example worker/.prod.vars  # fill in live keys
+```
+
+`PRINTFUL_API_KEY` is the same in both files — Printful has no test mode.
+
+### Switching modes and deploying
+
+From the `worker/` directory:
+
+```bash
+npm run deploy:dev    # push test secrets + deploy
+npm run deploy:prod   # push live secrets + deploy
+```
+
+To push secrets only (without deploying, e.g. when rotating a key):
+```bash
+npm run secrets:dev
+npm run secrets:prod
+```
+
+`npm run deploy` deploys without touching secrets (uses whatever is already set in Cloudflare).
+
+---
+
 ## One-time setup: register the webhook endpoint
 
 This must be done separately for test mode and live mode.
@@ -22,33 +58,21 @@ This must be done separately for test mode and live mode.
 **Test mode** — Stripe dashboard → Test mode on → Developers → Webhooks:
 1. Add endpoint: `https://hmc-worker.danrevel.workers.dev/webhook`
 2. Select event: `checkout.session.completed`
-3. Copy the signing secret (`whsec_...`) — this is your test `STRIPE_WEBHOOK_SECRET`
+3. Copy the signing secret (`whsec_...`) → put this in `worker/.dev.vars` as `STRIPE_WEBHOOK_SECRET`
 
 **Live mode** — repeat the same steps with Test mode off, using your live keys.
 
 ---
 
-## Deploying in test mode
-
-```bash
-cd worker
-wrangler secret put STRIPE_SECRET_KEY       # paste sk_test_...
-wrangler secret put STRIPE_WEBHOOK_SECRET   # paste whsec_... (from test webhook endpoint)
-npm run deploy
-```
-
-`PRINTFUL_API_KEY` is the same for both modes — no change needed.
-
----
-
 ## Running a test order
 
-1. Visit the live site at hmc-cycling.org
-2. Select a product, color, and size — add to cart
-3. Click Checkout
-4. Use card `4242 4242 4242 4242`, any future expiry, any CVV, any ZIP
-5. Enter a real shipping address (Printful will use it)
-6. Complete the order
+1. Deploy in test mode: `cd worker && npm run deploy:dev`
+2. Visit hmc-cycling.org
+3. Select a product, color, and size — add to cart
+4. Click Checkout
+5. Use card `4242 4242 4242 4242`, any future expiry, any CVV, any ZIP
+6. Enter a real shipping address (Printful will use it)
+7. Complete the order
 
 **Verify in Stripe** (Test mode → Developers → Webhooks → your endpoint → Recent deliveries):
 - `checkout.session.completed` event should show status **200**
@@ -61,15 +85,12 @@ npm run deploy
 
 ---
 
-## Switching to live mode
+## Going live
 
 Once test mode passes:
 
 ```bash
-cd worker
-wrangler secret put STRIPE_SECRET_KEY       # paste sk_live_...
-wrangler secret put STRIPE_WEBHOOK_SECRET   # paste whsec_... (from live webhook endpoint)
-npm run deploy
+cd worker && npm run deploy:prod
 ```
 
 No code changes required — only secret rotation.

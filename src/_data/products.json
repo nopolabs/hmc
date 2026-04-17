@@ -1,352 +1,8 @@
 [
   {
-    "slug": "69e05ba41a5e83",
-    "name": "Women’s Basic Softstyle T-Shirt HMC Crow Front and Back",
-    "description": "",
-    "price": "20.00",
-    "main_image": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-white-front-69e05cfd5a8df.png",
-    "colors": [
-      {
-        "name": "White",
-        "hex": "#FFFFFF",
-        "images": {
-          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-white-front-69e05cfd5a8df.png",
-          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-white-back-69e05cfd5b26e.png"
-        },
-        "sizes": [
-          {
-            "size": "S",
-            "external_id": "69e05ba41a67a2"
-          },
-          {
-            "size": "M",
-            "external_id": "69e05ba41a67e5"
-          },
-          {
-            "size": "L",
-            "external_id": "69e05ba41a6827"
-          },
-          {
-            "size": "XL",
-            "external_id": "69e05ba41a6865"
-          },
-          {
-            "size": "2XL",
-            "external_id": "69e05ba41a68a6"
-          }
-        ]
-      },
-      {
-        "name": "Red",
-        "hex": "#cc2222",
-        "images": {
-          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-red-front-69e05cfd5a7ce.png",
-          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-red-back-69e05cfd5b182.png"
-        },
-        "sizes": [
-          {
-            "size": "S",
-            "external_id": "69e05ba41a6211"
-          },
-          {
-            "size": "M",
-            "external_id": "69e05ba41a6253"
-          },
-          {
-            "size": "L",
-            "external_id": "69e05ba41a62a6"
-          },
-          {
-            "size": "XL",
-            "external_id": "69e05ba41a62e6"
-          },
-          {
-            "size": "2XL",
-            "external_id": "69e05ba41a6332"
-          }
-        ]
-      },
-      {
-        "name": "Azalea",
-        "hex": "#f06080",
-        "images": {
-          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-azalea-front-69e05cfd5a270.png",
-          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-azalea-back-69e05cfd5ae29.png"
-        },
-        "sizes": [
-          {
-            "size": "S",
-            "external_id": "69e05ba41a6649"
-          },
-          {
-            "size": "M",
-            "external_id": "69e05ba41a6694"
-          },
-          {
-            "size": "L",
-            "external_id": "69e05ba41a66d8"
-          },
-          {
-            "size": "XL",
-            "external_id": "69e05ba41a6719"
-          },
-          {
-            "size": "2XL",
-            "external_id": "69e05ba41a6768"
-          }
-        ]
-      },
-      {
-        "name": "Irish Green",
-        "hex": "#009a44",
-        "images": {
-          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-irish-green-front-69e05cfd5a6a1.png",
-          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-irish-green-back-69e05cfd5b00d.png"
-        },
-        "sizes": [
-          {
-            "size": "S",
-            "external_id": "69e05ba41a64e1"
-          },
-          {
-            "size": "M",
-            "external_id": "69e05ba41a6524"
-          },
-          {
-            "size": "L",
-            "external_id": "69e05ba41a6579"
-          },
-          {
-            "size": "XL",
-            "external_id": "69e05ba41a65b5"
-          },
-          {
-            "size": "2XL",
-            "external_id": "69e05ba41a6602"
-          }
-        ]
-      },
-      {
-        "name": "Navy",
-        "hex": "#1a2744",
-        "images": {
-          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-navy-front-69e05cfd5a73f.png",
-          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-navy-back-69e05cfd5b0e2.png"
-        },
-        "sizes": [
-          {
-            "size": "S",
-            "external_id": "69e05ba41a60b5"
-          },
-          {
-            "size": "M",
-            "external_id": "69e05ba41a60f4"
-          },
-          {
-            "size": "L",
-            "external_id": "69e05ba41a6142"
-          },
-          {
-            "size": "XL",
-            "external_id": "69e05ba41a6188"
-          },
-          {
-            "size": "2XL",
-            "external_id": "69e05ba41a61c4"
-          }
-        ]
-      },
-      {
-        "name": "Royal",
-        "hex": "#1a4ba0",
-        "images": {
-          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-royal-front-69e05cfd5a863.png",
-          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-royal-back-69e05cfd5b1fa.png"
-        },
-        "sizes": [
-          {
-            "size": "S",
-            "external_id": "69e05ba41a6383"
-          },
-          {
-            "size": "M",
-            "external_id": "69e05ba41a63d4"
-          },
-          {
-            "size": "L",
-            "external_id": "69e05ba41a6413"
-          },
-          {
-            "size": "XL",
-            "external_id": "69e05ba41a6453"
-          },
-          {
-            "size": "2XL",
-            "external_id": "69e05ba41a6497"
-          }
-        ]
-      },
-      {
-        "name": "Black",
-        "hex": "#1a1a1a",
-        "images": {
-          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-black-front-69e05cfd5a593.png",
-          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-black-back-69e05cfd5af38.png"
-        },
-        "sizes": [
-          {
-            "size": "S",
-            "external_id": "69e05ba41a5f23"
-          },
-          {
-            "size": "M",
-            "external_id": "69e05ba41a5f81"
-          },
-          {
-            "size": "L",
-            "external_id": "69e05ba41a5fd8"
-          },
-          {
-            "size": "XL",
-            "external_id": "69e05ba41a6021"
-          },
-          {
-            "size": "2XL",
-            "external_id": "69e05ba41a6062"
-          }
-        ]
-      }
-    ],
-    "size_guide": {
-      "product_measure": {
-        "type": "product_measure",
-        "unit": "inches",
-        "description": "<p>Measurements are provided by our suppliers. Product measurements may vary by up to 2\" (5 cm).</p>",
-        "image_url": "https://files.cdn.printful.com/upload/product-measure/54/54ab917ed3b3895b0935636273c7beeb_l?v=1744114846",
-        "image_description": "<h6 dir=\"ltr\">A Length</h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure to the bottom of the shirt.</span></p>\n<h6 dir=\"ltr\">B Width</h6>\n<p dir=\"ltr\">Place the end of the tape at the seam under the sleeve and pull the tape measure across the shirt to the seam under the opposite sleeve.</p>",
-        "measurements": [
-          {
-            "type_label": "Length",
-            "values": [
-              {
-                "size": "S",
-                "value": "25.5"
-              },
-              {
-                "size": "M",
-                "value": "26"
-              },
-              {
-                "size": "L",
-                "value": "27"
-              },
-              {
-                "size": "XL",
-                "value": "28"
-              },
-              {
-                "size": "2XL",
-                "value": "28.5"
-              }
-            ]
-          },
-          {
-            "type_label": "Width",
-            "values": [
-              {
-                "size": "S",
-                "value": "17"
-              },
-              {
-                "size": "M",
-                "value": "19"
-              },
-              {
-                "size": "L",
-                "value": "21"
-              },
-              {
-                "size": "XL",
-                "value": "23"
-              },
-              {
-                "size": "2XL",
-                "value": "25"
-              }
-            ]
-          }
-        ]
-      },
-      "measure_yourself": {
-        "type": "measure_yourself",
-        "unit": "inches",
-        "description": "<p>Measurements are provided by suppliers.</p>",
-        "image_url": "https://files.cdn.printful.com/upload/measure-yourself/6a/6acb1f236f416f84f8b2511d56b1162f_l?v=1744114846",
-        "image_description": "<h6><strong>A Length</strong></h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure t</span><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">o the bottom of the shirt.</span></p>\n<h6>B Chest</h6>\n<p dir=\"ltr\">Measure yourself around the fullest part of your chest. Keep the tape measure horizontal. </p>",
-        "measurements": [
-          {
-            "type_label": "Length",
-            "values": [
-              {
-                "size": "S",
-                "value": "25.5"
-              },
-              {
-                "size": "M",
-                "value": "26"
-              },
-              {
-                "size": "L",
-                "value": "27"
-              },
-              {
-                "size": "XL",
-                "value": "28"
-              },
-              {
-                "size": "2XL",
-                "value": "28.5"
-              }
-            ]
-          },
-          {
-            "type_label": "Chest",
-            "values": [
-              {
-                "size": "S",
-                "min_value": "31",
-                "max_value": "34"
-              },
-              {
-                "size": "M",
-                "min_value": "35",
-                "max_value": "38"
-              },
-              {
-                "size": "L",
-                "min_value": "39",
-                "max_value": "41"
-              },
-              {
-                "size": "XL",
-                "min_value": "42",
-                "max_value": "45"
-              },
-              {
-                "size": "2XL",
-                "min_value": "46",
-                "max_value": "48"
-              }
-            ]
-          }
-        ]
-      }
-    }
-  },
-  {
     "slug": "69e05ba02a2e08",
     "name": "Women’s Basic Softstyle T-Shirt HMC Crow Front Only",
-    "description": "",
+    "description": "This tee has a semi-fitted cut that follows the body’s natural lines without feeling tight, making it a flattering choice for everyday wear. 100% ring-spun cotton.",
     "price": "20.00",
     "main_image": "/mockups/womens_softstyle-front_only/womens-basic-softstyle-t-shirt-white-front-69e05d4f10ba1.png",
     "colors": [
@@ -681,77 +337,108 @@
     }
   },
   {
-    "slug": "69e056ae13e1c3",
-    "name": "Unisex T-Shirt HMC Crow Front and Back",
-    "description": "",
+    "slug": "69e056a4a75bc4",
+    "name": "Women's Relaxed T-Shirt HMC Crow Front Only",
+    "description": "A relaxed-fit t-shirt designed for everyday wear. It’s made with side seams for structure and shape retention. 100% combed and ring-spun cotton.",
     "price": "20.00",
-    "main_image": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-white-front-69e05d95aa89e.png",
+    "main_image": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-white-front-69e05e56d0c66.png",
     "colors": [
       {
         "name": "White",
         "hex": "#FFFFFF",
         "images": {
-          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-white-front-69e05d95aa89e.png",
-          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-white-back-69e05d95ab30f.png"
+          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-white-front-69e05e56d0c66.png"
         },
         "sizes": [
           {
-            "size": "XS",
-            "external_id": "69e056ae13efe8"
-          },
-          {
             "size": "S",
-            "external_id": "69e056ae13f035"
+            "external_id": "69e056a4a778e6"
           },
           {
             "size": "M",
-            "external_id": "69e056ae13f077"
+            "external_id": "69e056a4a77957"
           },
           {
             "size": "L",
-            "external_id": "69e056ae13f0c8"
+            "external_id": "69e056a4a77a31"
           },
           {
             "size": "XL",
-            "external_id": "69e056ae13f119"
+            "external_id": "69e056a4a77ac4"
           },
           {
             "size": "2XL",
-            "external_id": "69e056ae13f167"
+            "external_id": "69e056a4a77b36"
+          },
+          {
+            "size": "3XL",
+            "external_id": "69e056a4a77ba7"
           }
         ]
       },
       {
-        "name": "Cardinal",
-        "hex": "#9b1b2a",
+        "name": "Heather Red",
+        "hex": "#bb4444",
         "images": {
-          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-cardinal-front-69e05d95aa21d.png",
-          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-cardinal-back-69e05d95aaf99.png"
+          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-heather-red-front-69e05e56d0926.png"
         },
         "sizes": [
           {
-            "size": "XS",
-            "external_id": "69e056ae13e618"
-          },
-          {
             "size": "S",
-            "external_id": "69e056ae13e669"
+            "external_id": "69e056a4a76f15"
           },
           {
             "size": "M",
-            "external_id": "69e056ae13e6a8"
+            "external_id": "69e056a4a76f86"
           },
           {
             "size": "L",
-            "external_id": "69e056ae13e6f9"
+            "external_id": "69e056a4a77004"
           },
           {
             "size": "XL",
-            "external_id": "69e056ae13e744"
+            "external_id": "69e056a4a77075"
           },
           {
             "size": "2XL",
-            "external_id": "69e056ae13e783"
+            "external_id": "69e056a4a770f6"
+          },
+          {
+            "size": "3XL",
+            "external_id": "69e056a4a77151"
+          }
+        ]
+      },
+      {
+        "name": "Maroon",
+        "hex": "#6b1a2a",
+        "images": {
+          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-maroon-front-69e05e56d0a7b.png"
+        },
+        "sizes": [
+          {
+            "size": "S",
+            "external_id": "69e056a4a762d6"
+          },
+          {
+            "size": "M",
+            "external_id": "69e056a4a76354"
+          },
+          {
+            "size": "L",
+            "external_id": "69e056a4a763d1"
+          },
+          {
+            "size": "XL",
+            "external_id": "69e056a4a76455"
+          },
+          {
+            "size": "2XL",
+            "external_id": "69e056a4a764d3"
+          },
+          {
+            "size": "3XL",
+            "external_id": "69e056a4a76552"
           }
         ]
       },
@@ -759,157 +446,131 @@
         "name": "Pink",
         "hex": "#f4a0b0",
         "images": {
-          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-pink-front-69e05d95aa750.png",
-          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-pink-back-69e05d95ab268.png"
+          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-pink-front-69e05e56d0bb3.png"
         },
         "sizes": [
           {
             "size": "S",
-            "external_id": "69e056ae13ee66"
+            "external_id": "69e056a4a775e4"
           },
           {
             "size": "M",
-            "external_id": "69e056ae13eeb2"
+            "external_id": "69e056a4a77679"
           },
           {
             "size": "L",
-            "external_id": "69e056ae13ef06"
+            "external_id": "69e056a4a776f2"
           },
           {
             "size": "XL",
-            "external_id": "69e056ae13ef42"
+            "external_id": "69e056a4a77772"
           },
           {
             "size": "2XL",
-            "external_id": "69e056ae13ef95"
+            "external_id": "69e056a4a777f8"
+          },
+          {
+            "size": "3XL",
+            "external_id": "69e056a4a77867"
           }
         ]
       },
       {
-        "name": "Mustard",
-        "hex": "#c8922a",
-        "images": {
-          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-mustard-front-69e05d95aa4c8.png",
-          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-mustard-back-69e05d95ab10c.png"
-        },
-        "sizes": [
-          {
-            "size": "XS",
-            "external_id": "69e056ae13ead9"
-          },
-          {
-            "size": "S",
-            "external_id": "69e056ae13eb19"
-          },
-          {
-            "size": "M",
-            "external_id": "69e056ae13eb79"
-          },
-          {
-            "size": "L",
-            "external_id": "69e056ae13ebb6"
-          },
-          {
-            "size": "XL",
-            "external_id": "69e056ae13ec04"
-          },
-          {
-            "size": "2XL",
-            "external_id": "69e056ae13ec52"
-          }
-        ]
-      },
-      {
-        "name": "Forest",
+        "name": "Forest Green",
         "hex": "#2d5016",
         "images": {
-          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-forest-front-69e05d95aa37c.png",
-          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-forest-back-69e05d95ab056.png"
+          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-forest-green-front-69e05e56d0d08.png"
         },
         "sizes": [
           {
             "size": "S",
-            "external_id": "69e056ae13e7d4"
+            "external_id": "69e056a4a76661"
           },
           {
             "size": "M",
-            "external_id": "69e056ae13e822"
+            "external_id": "69e056a4a766f7"
           },
           {
             "size": "L",
-            "external_id": "69e056ae13e877"
+            "external_id": "69e056a4a76769"
           },
           {
             "size": "XL",
-            "external_id": "69e056ae13e8b6"
+            "external_id": "69e056a4a767e4"
           },
           {
             "size": "2XL",
-            "external_id": "69e056ae13e906"
+            "external_id": "69e056a4a76854"
+          },
+          {
+            "size": "3XL",
+            "external_id": "69e056a4a768d4"
           }
         ]
       },
       {
-        "name": "Teal",
-        "hex": "#007b8a",
+        "name": "Leaf",
+        "hex": "#5a7a3a",
         "images": {
-          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-teal-front-69e05d95aab48.png",
-          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-teal-back-69e05d95ab46c.png"
+          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-leaf-front-69e05e56d09e1.png"
         },
         "sizes": [
           {
-            "size": "XS",
-            "external_id": "69e056ae13eca9"
-          },
-          {
             "size": "S",
-            "external_id": "69e056ae13ece4"
+            "external_id": "69e056a4a771d7"
           },
           {
             "size": "M",
-            "external_id": "69e056ae13ed37"
+            "external_id": "69e056a4a77248"
           },
           {
             "size": "L",
-            "external_id": "69e056ae13ed82"
+            "external_id": "69e056a4a772c9"
           },
           {
             "size": "XL",
-            "external_id": "69e056ae13edc7"
+            "external_id": "69e056a4a77463"
           },
           {
             "size": "2XL",
-            "external_id": "69e056ae13ee11"
+            "external_id": "69e056a4a774e5"
+          },
+          {
+            "size": "3XL",
+            "external_id": "69e056a4a77561"
           }
         ]
       },
       {
-        "name": "Aqua",
-        "hex": "#47c5d4",
+        "name": "Heather Deep Teal",
+        "hex": "#2d7d7a",
         "images": {
-          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-aqua-front-69e05d95a9f4b.png",
-          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-aqua-back-69e05d95aaeb8.png"
+          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-heather-deep-teal-front-69e05e56d0e4d.png"
         },
         "sizes": [
           {
             "size": "S",
-            "external_id": "69e056ae13e949"
+            "external_id": "69e056a4a76957"
           },
           {
             "size": "M",
-            "external_id": "69e056ae13e996"
+            "external_id": "69e056a4a769d8"
           },
           {
             "size": "L",
-            "external_id": "69e056ae13e9e4"
+            "external_id": "69e056a4a76a48"
           },
           {
             "size": "XL",
-            "external_id": "69e056ae13ea36"
+            "external_id": "69e056a4a76ac6"
           },
           {
             "size": "2XL",
-            "external_id": "69e056ae13ea87"
+            "external_id": "69e056a4a76b33"
+          },
+          {
+            "size": "3XL",
+            "external_id": "69e056a4a76bb5"
           }
         ]
       },
@@ -917,67 +578,98 @@
         "name": "Navy",
         "hex": "#1a2744",
         "images": {
-          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-navy-front-69e05d95aa60f.png",
-          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-navy-back-69e05d95ab1b5.png"
+          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-navy-front-69e05e56d0b12.png"
         },
         "sizes": [
           {
-            "size": "XS",
-            "external_id": "69e056ae13e453"
-          },
-          {
             "size": "S",
-            "external_id": "69e056ae13e4a9"
+            "external_id": "69e056a4a75cb1"
           },
           {
             "size": "M",
-            "external_id": "69e056ae13e4e2"
+            "external_id": "69e056a4a75d73"
           },
           {
             "size": "L",
-            "external_id": "69e056ae13e534"
+            "external_id": "69e056a4a75e13"
           },
           {
             "size": "XL",
-            "external_id": "69e056ae13e582"
+            "external_id": "69e056a4a75e94"
           },
           {
             "size": "2XL",
-            "external_id": "69e056ae13e5d3"
+            "external_id": "69e056a4a75f16"
+          },
+          {
+            "size": "3XL",
+            "external_id": "69e056a4a75f91"
           }
         ]
       },
       {
-        "name": "Vintage Black",
-        "hex": "#2d2d2b",
+        "name": "Heather True Royal",
+        "hex": "#4466bb",
         "images": {
-          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-vintage-black-front-69e05d95aa9e3.png",
-          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-vintage-black-back-69e05d95ab3be.png"
+          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-heather-true-royal-front-69e05e56d0da9.png"
         },
         "sizes": [
           {
-            "size": "XS",
-            "external_id": "69e056ae13e264"
-          },
-          {
             "size": "S",
-            "external_id": "69e056ae13e2d5"
+            "external_id": "69e056a4a76c36"
           },
           {
             "size": "M",
-            "external_id": "69e056ae13e325"
+            "external_id": "69e056a4a76cb4"
           },
           {
             "size": "L",
-            "external_id": "69e056ae13e377"
+            "external_id": "69e056a4a76d35"
           },
           {
             "size": "XL",
-            "external_id": "69e056ae13e3b8"
+            "external_id": "69e056a4a76db8"
           },
           {
             "size": "2XL",
-            "external_id": "69e056ae13e409"
+            "external_id": "69e056a4a76e39"
+          },
+          {
+            "size": "3XL",
+            "external_id": "69e056a4a76ea8"
+          }
+        ]
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a",
+        "images": {
+          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-black-front-69e05e56d068c.png"
+        },
+        "sizes": [
+          {
+            "size": "S",
+            "external_id": "69e056a4a76002"
+          },
+          {
+            "size": "M",
+            "external_id": "69e056a4a76089"
+          },
+          {
+            "size": "L",
+            "external_id": "69e056a4a760f7"
+          },
+          {
+            "size": "XL",
+            "external_id": "69e056a4a76171"
+          },
+          {
+            "size": "2XL",
+            "external_id": "69e056a4a761e8"
+          },
+          {
+            "size": "3XL",
+            "external_id": "69e056a4a76262"
           }
         ]
       }
@@ -987,47 +679,35 @@
         "type": "product_measure",
         "unit": "inches",
         "description": "<p dir=\"ltr\">Measurements are provided by our suppliers. Product measurements may vary by up to 2\" (5 cm).</p>\n<p dir=\"ltr\">Pro tip! Measure one of your products at home and compare with the measurements you see in this guide.</p>",
-        "image_url": "https://files.cdn.printful.com/upload/product-measure/e6/e6ab5ac32761974387a1350fe576666e_l?v=1652962719",
-        "image_description": "<h6 dir=\"ltr\">A Length</h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure to the bottom of the shirt.</span></p>\n<h6 dir=\"ltr\">B Width</h6>\n<p dir=\"ltr\">Place the end of the tape at the seam under the sleeve and pull the tape measure across the shirt to the seam under the opposite sleeve.</p>",
+        "image_url": "https://files.cdn.printful.com/upload/product-measure/60/60b49c6e0096700df12d74fad9ba4ab5_l?v=1691664304",
+        "image_description": "<h6 dir=\"ltr\">A Length</h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure to the bottom of the shirt.</span></p>\n<h6 dir=\"ltr\">B Width</h6>\n<p dir=\"ltr\">Place the end of the tape at the seam under the sleeve and pull the tape measure across the shirt to the seam under the opposite sleeve.</p>\n<h6>C Sleeve length</h6>\n<p>Place one end of the tape at the top of the set-in sleeve, then pull the tape down until you reach the hem of the sleeve.</p>",
         "measurements": [
           {
             "type_label": "Length",
             "values": [
               {
-                "size": "XS",
-                "value": "27"
-              },
-              {
                 "size": "S",
-                "value": "28"
+                "value": "25 1/4"
               },
               {
                 "size": "M",
-                "value": "29"
+                "value": "26"
               },
               {
                 "size": "L",
-                "value": "30"
+                "value": "26 3/4"
               },
               {
                 "size": "XL",
-                "value": "31"
+                "value": "27 1/2"
               },
               {
                 "size": "2XL",
-                "value": "32"
+                "value": "28 1/4"
               },
               {
                 "size": "3XL",
-                "value": "33"
-              },
-              {
-                "size": "4XL",
-                "value": "34"
-              },
-              {
-                "size": "5XL",
-                "value": "35"
+                "value": "29"
               }
             ]
           },
@@ -1035,12 +715,8 @@
             "type_label": "Width",
             "values": [
               {
-                "size": "XS",
-                "value": "16.5"
-              },
-              {
                 "size": "S",
-                "value": "18"
+                "value": "18 1/2"
               },
               {
                 "size": "M",
@@ -1061,14 +737,35 @@
               {
                 "size": "3XL",
                 "value": "28"
+              }
+            ]
+          },
+          {
+            "type_label": "Sleeve Length",
+            "values": [
+              {
+                "size": "S",
+                "value": "7 3/4"
               },
               {
-                "size": "4XL",
-                "value": "30"
+                "size": "M",
+                "value": "8 1/4"
               },
               {
-                "size": "5XL",
-                "value": "32"
+                "size": "L",
+                "value": "8 3/4"
+              },
+              {
+                "size": "XL",
+                "value": "9 1/2"
+              },
+              {
+                "size": "2XL",
+                "value": "10 1/4"
+              },
+              {
+                "size": "3XL",
+                "value": "10 3/4"
               }
             ]
           }
@@ -1077,59 +774,42 @@
       "measure_yourself": {
         "type": "measure_yourself",
         "unit": "inches",
-        "description": "<p>Measurements are provided by suppliers.</p>\n<p>Product measurements may vary by up to 2<span style=\"font-family: Arial; font-size: 13px; text-align: center; white-space: pre-wrap;\">&Prime;</span>&nbsp;(5 cm).</p>",
-        "image_url": "https://files.cdn.printful.com/upload/measure-yourself/1a/1a11f31816e9e95a4e4cb3412c597b16_l?v=1652962719",
-        "image_description": "<h6><strong>A Length</strong></h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure t</span><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">o the bottom of the shirt.</span></p>\n<h6>B Chest</h6>\n<p dir=\"ltr\">Measure yourself around the fullest part of your chest. Keep the tape measure horizontal.</p>",
+        "description": "<p>Measurements are provided by suppliers.</p>\n<p>Product measurements may vary by up to 2<span style=\"font-family: Arial; font-size: 13px; text-align: center; white-space: pre-wrap;\">&Prime;</span> (5 cm).</p>",
+        "image_url": "https://files.cdn.printful.com/upload/measure-yourself/f4/f48c57160c353e24a242000e3d209f26_l?v=1691664304",
+        "image_description": "<h6><strong>A Length</strong></h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure t</span><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">o the bottom of the shirt.</span></p>\n<h6>B Chest</h6>\n<p dir=\"ltr\">Measure yourself around the fullest part of your chest. Keep the tape measure horizontal.</p>\n<h6>C Sleeve length</h6>\n<p>Place one end of the tape at the top of the set-in sleeve, then pull the tape down until you reach the hem of the sleeve.</p>",
         "measurements": [
           {
             "type_label": "Length",
             "values": [
               {
-                "size": "XS",
-                "value": "27"
-              },
-              {
                 "size": "S",
-                "value": "28"
+                "value": "25 1/4"
               },
               {
                 "size": "M",
-                "value": "29"
+                "value": "26"
               },
               {
                 "size": "L",
-                "value": "30"
+                "value": "26 3/4"
               },
               {
                 "size": "XL",
-                "value": "31"
+                "value": "27 1/2"
               },
               {
                 "size": "2XL",
-                "value": "32"
+                "value": "28 1/4"
               },
               {
                 "size": "3XL",
-                "value": "33"
-              },
-              {
-                "size": "4XL",
-                "value": "34"
-              },
-              {
-                "size": "5XL",
-                "value": "35"
+                "value": "29"
               }
             ]
           },
           {
             "type_label": "Chest",
             "values": [
-              {
-                "size": "XS",
-                "min_value": "31",
-                "max_value": "34"
-              },
               {
                 "size": "S",
                 "min_value": "34",
@@ -1159,16 +839,35 @@
                 "size": "3XL",
                 "min_value": "54",
                 "max_value": "57"
+              }
+            ]
+          },
+          {
+            "type_label": "Sleeve Length",
+            "values": [
+              {
+                "size": "S",
+                "value": "7 3/4"
               },
               {
-                "size": "4XL",
-                "min_value": "58",
-                "max_value": "61"
+                "size": "M",
+                "value": "8 1/4"
               },
               {
-                "size": "5XL",
-                "min_value": "62",
-                "max_value": "65"
+                "size": "L",
+                "value": "8 3/4"
+              },
+              {
+                "size": "XL",
+                "value": "9 1/2"
+              },
+              {
+                "size": "2XL",
+                "value": "10 1/4"
+              },
+              {
+                "size": "3XL",
+                "value": "10 3/4"
               }
             ]
           }
@@ -1179,7 +878,7 @@
   {
     "slug": "69e056aba0e644",
     "name": "Unisex T-Shirt HMC Crow Front Only",
-    "description": "",
+    "description": "The Unisex Staple T-Shirt feels soft and light with just the right amount of stretch. It's comfortable and flattering for all.",
     "price": "20.00",
     "main_image": "/mockups/unisex-front_only/unisex-staple-t-shirt-white-front-69e05dd29312e.png",
     "colors": [
@@ -1664,9 +1363,353 @@
     }
   },
   {
+    "slug": "69e05ba41a5e83",
+    "name": "Women’s Basic Softstyle T-Shirt HMC Crow Front and Back",
+    "description": "This tee has a semi-fitted cut that follows the body’s natural lines without feeling tight, making it a flattering choice for everyday wear. 100% ring-spun cotton.",
+    "price": "20.00",
+    "main_image": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-white-front-69e05cfd5a8df.png",
+    "colors": [
+      {
+        "name": "White",
+        "hex": "#FFFFFF",
+        "images": {
+          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-white-front-69e05cfd5a8df.png",
+          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-white-back-69e05cfd5b26e.png"
+        },
+        "sizes": [
+          {
+            "size": "S",
+            "external_id": "69e05ba41a67a2"
+          },
+          {
+            "size": "M",
+            "external_id": "69e05ba41a67e5"
+          },
+          {
+            "size": "L",
+            "external_id": "69e05ba41a6827"
+          },
+          {
+            "size": "XL",
+            "external_id": "69e05ba41a6865"
+          },
+          {
+            "size": "2XL",
+            "external_id": "69e05ba41a68a6"
+          }
+        ]
+      },
+      {
+        "name": "Red",
+        "hex": "#cc2222",
+        "images": {
+          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-red-front-69e05cfd5a7ce.png",
+          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-red-back-69e05cfd5b182.png"
+        },
+        "sizes": [
+          {
+            "size": "S",
+            "external_id": "69e05ba41a6211"
+          },
+          {
+            "size": "M",
+            "external_id": "69e05ba41a6253"
+          },
+          {
+            "size": "L",
+            "external_id": "69e05ba41a62a6"
+          },
+          {
+            "size": "XL",
+            "external_id": "69e05ba41a62e6"
+          },
+          {
+            "size": "2XL",
+            "external_id": "69e05ba41a6332"
+          }
+        ]
+      },
+      {
+        "name": "Azalea",
+        "hex": "#f06080",
+        "images": {
+          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-azalea-front-69e05cfd5a270.png",
+          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-azalea-back-69e05cfd5ae29.png"
+        },
+        "sizes": [
+          {
+            "size": "S",
+            "external_id": "69e05ba41a6649"
+          },
+          {
+            "size": "M",
+            "external_id": "69e05ba41a6694"
+          },
+          {
+            "size": "L",
+            "external_id": "69e05ba41a66d8"
+          },
+          {
+            "size": "XL",
+            "external_id": "69e05ba41a6719"
+          },
+          {
+            "size": "2XL",
+            "external_id": "69e05ba41a6768"
+          }
+        ]
+      },
+      {
+        "name": "Irish Green",
+        "hex": "#009a44",
+        "images": {
+          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-irish-green-front-69e05cfd5a6a1.png",
+          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-irish-green-back-69e05cfd5b00d.png"
+        },
+        "sizes": [
+          {
+            "size": "S",
+            "external_id": "69e05ba41a64e1"
+          },
+          {
+            "size": "M",
+            "external_id": "69e05ba41a6524"
+          },
+          {
+            "size": "L",
+            "external_id": "69e05ba41a6579"
+          },
+          {
+            "size": "XL",
+            "external_id": "69e05ba41a65b5"
+          },
+          {
+            "size": "2XL",
+            "external_id": "69e05ba41a6602"
+          }
+        ]
+      },
+      {
+        "name": "Navy",
+        "hex": "#1a2744",
+        "images": {
+          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-navy-front-69e05cfd5a73f.png",
+          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-navy-back-69e05cfd5b0e2.png"
+        },
+        "sizes": [
+          {
+            "size": "S",
+            "external_id": "69e05ba41a60b5"
+          },
+          {
+            "size": "M",
+            "external_id": "69e05ba41a60f4"
+          },
+          {
+            "size": "L",
+            "external_id": "69e05ba41a6142"
+          },
+          {
+            "size": "XL",
+            "external_id": "69e05ba41a6188"
+          },
+          {
+            "size": "2XL",
+            "external_id": "69e05ba41a61c4"
+          }
+        ]
+      },
+      {
+        "name": "Royal",
+        "hex": "#1a4ba0",
+        "images": {
+          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-royal-front-69e05cfd5a863.png",
+          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-royal-back-69e05cfd5b1fa.png"
+        },
+        "sizes": [
+          {
+            "size": "S",
+            "external_id": "69e05ba41a6383"
+          },
+          {
+            "size": "M",
+            "external_id": "69e05ba41a63d4"
+          },
+          {
+            "size": "L",
+            "external_id": "69e05ba41a6413"
+          },
+          {
+            "size": "XL",
+            "external_id": "69e05ba41a6453"
+          },
+          {
+            "size": "2XL",
+            "external_id": "69e05ba41a6497"
+          }
+        ]
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a",
+        "images": {
+          "front": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-black-front-69e05cfd5a593.png",
+          "back": "/mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-black-back-69e05cfd5af38.png"
+        },
+        "sizes": [
+          {
+            "size": "S",
+            "external_id": "69e05ba41a5f23"
+          },
+          {
+            "size": "M",
+            "external_id": "69e05ba41a5f81"
+          },
+          {
+            "size": "L",
+            "external_id": "69e05ba41a5fd8"
+          },
+          {
+            "size": "XL",
+            "external_id": "69e05ba41a6021"
+          },
+          {
+            "size": "2XL",
+            "external_id": "69e05ba41a6062"
+          }
+        ]
+      }
+    ],
+    "size_guide": {
+      "product_measure": {
+        "type": "product_measure",
+        "unit": "inches",
+        "description": "<p>Measurements are provided by our suppliers. Product measurements may vary by up to 2\" (5 cm).</p>",
+        "image_url": "https://files.cdn.printful.com/upload/product-measure/54/54ab917ed3b3895b0935636273c7beeb_l?v=1744114846",
+        "image_description": "<h6 dir=\"ltr\">A Length</h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure to the bottom of the shirt.</span></p>\n<h6 dir=\"ltr\">B Width</h6>\n<p dir=\"ltr\">Place the end of the tape at the seam under the sleeve and pull the tape measure across the shirt to the seam under the opposite sleeve.</p>",
+        "measurements": [
+          {
+            "type_label": "Length",
+            "values": [
+              {
+                "size": "S",
+                "value": "25.5"
+              },
+              {
+                "size": "M",
+                "value": "26"
+              },
+              {
+                "size": "L",
+                "value": "27"
+              },
+              {
+                "size": "XL",
+                "value": "28"
+              },
+              {
+                "size": "2XL",
+                "value": "28.5"
+              }
+            ]
+          },
+          {
+            "type_label": "Width",
+            "values": [
+              {
+                "size": "S",
+                "value": "17"
+              },
+              {
+                "size": "M",
+                "value": "19"
+              },
+              {
+                "size": "L",
+                "value": "21"
+              },
+              {
+                "size": "XL",
+                "value": "23"
+              },
+              {
+                "size": "2XL",
+                "value": "25"
+              }
+            ]
+          }
+        ]
+      },
+      "measure_yourself": {
+        "type": "measure_yourself",
+        "unit": "inches",
+        "description": "<p>Measurements are provided by suppliers.</p>",
+        "image_url": "https://files.cdn.printful.com/upload/measure-yourself/6a/6acb1f236f416f84f8b2511d56b1162f_l?v=1744114846",
+        "image_description": "<h6><strong>A Length</strong></h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure t</span><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">o the bottom of the shirt.</span></p>\n<h6>B Chest</h6>\n<p dir=\"ltr\">Measure yourself around the fullest part of your chest. Keep the tape measure horizontal. </p>",
+        "measurements": [
+          {
+            "type_label": "Length",
+            "values": [
+              {
+                "size": "S",
+                "value": "25.5"
+              },
+              {
+                "size": "M",
+                "value": "26"
+              },
+              {
+                "size": "L",
+                "value": "27"
+              },
+              {
+                "size": "XL",
+                "value": "28"
+              },
+              {
+                "size": "2XL",
+                "value": "28.5"
+              }
+            ]
+          },
+          {
+            "type_label": "Chest",
+            "values": [
+              {
+                "size": "S",
+                "min_value": "31",
+                "max_value": "34"
+              },
+              {
+                "size": "M",
+                "min_value": "35",
+                "max_value": "38"
+              },
+              {
+                "size": "L",
+                "min_value": "39",
+                "max_value": "41"
+              },
+              {
+                "size": "XL",
+                "min_value": "42",
+                "max_value": "45"
+              },
+              {
+                "size": "2XL",
+                "min_value": "46",
+                "max_value": "48"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "slug": "69e056a85ac3c9",
     "name": "Women's Relaxed T-Shirt HMC Crow Front And Back",
-    "description": "",
+    "description": "A relaxed-fit t-shirt designed for everyday wear. It’s made with side seams for structure and shape retention. 100% combed and ring-spun cotton.",
     "price": "20.00",
     "main_image": "/mockups/womens_relaxed-front_and_back/womens-relaxed-t-shirt-white-front-69e05e16a2995.png",
     "colors": [
@@ -2213,108 +2256,77 @@
     }
   },
   {
-    "slug": "69e056a4a75bc4",
-    "name": "Women's Relaxed T-Shirt HMC Crow Front Only",
-    "description": "",
+    "slug": "69e056ae13e1c3",
+    "name": "Unisex T-Shirt HMC Crow Front and Back",
+    "description": "The Unisex Staple T-Shirt feels soft and light with just the right amount of stretch. It's comfortable and flattering for all.",
     "price": "20.00",
-    "main_image": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-white-front-69e05e56d0c66.png",
+    "main_image": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-white-front-69e05d95aa89e.png",
     "colors": [
       {
         "name": "White",
         "hex": "#FFFFFF",
         "images": {
-          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-white-front-69e05e56d0c66.png"
+          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-white-front-69e05d95aa89e.png",
+          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-white-back-69e05d95ab30f.png"
         },
         "sizes": [
           {
+            "size": "XS",
+            "external_id": "69e056ae13efe8"
+          },
+          {
             "size": "S",
-            "external_id": "69e056a4a778e6"
+            "external_id": "69e056ae13f035"
           },
           {
             "size": "M",
-            "external_id": "69e056a4a77957"
+            "external_id": "69e056ae13f077"
           },
           {
             "size": "L",
-            "external_id": "69e056a4a77a31"
+            "external_id": "69e056ae13f0c8"
           },
           {
             "size": "XL",
-            "external_id": "69e056a4a77ac4"
+            "external_id": "69e056ae13f119"
           },
           {
             "size": "2XL",
-            "external_id": "69e056a4a77b36"
-          },
-          {
-            "size": "3XL",
-            "external_id": "69e056a4a77ba7"
+            "external_id": "69e056ae13f167"
           }
         ]
       },
       {
-        "name": "Heather Red",
-        "hex": "#bb4444",
+        "name": "Cardinal",
+        "hex": "#9b1b2a",
         "images": {
-          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-heather-red-front-69e05e56d0926.png"
+          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-cardinal-front-69e05d95aa21d.png",
+          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-cardinal-back-69e05d95aaf99.png"
         },
         "sizes": [
           {
+            "size": "XS",
+            "external_id": "69e056ae13e618"
+          },
+          {
             "size": "S",
-            "external_id": "69e056a4a76f15"
+            "external_id": "69e056ae13e669"
           },
           {
             "size": "M",
-            "external_id": "69e056a4a76f86"
+            "external_id": "69e056ae13e6a8"
           },
           {
             "size": "L",
-            "external_id": "69e056a4a77004"
+            "external_id": "69e056ae13e6f9"
           },
           {
             "size": "XL",
-            "external_id": "69e056a4a77075"
+            "external_id": "69e056ae13e744"
           },
           {
             "size": "2XL",
-            "external_id": "69e056a4a770f6"
-          },
-          {
-            "size": "3XL",
-            "external_id": "69e056a4a77151"
-          }
-        ]
-      },
-      {
-        "name": "Maroon",
-        "hex": "#6b1a2a",
-        "images": {
-          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-maroon-front-69e05e56d0a7b.png"
-        },
-        "sizes": [
-          {
-            "size": "S",
-            "external_id": "69e056a4a762d6"
-          },
-          {
-            "size": "M",
-            "external_id": "69e056a4a76354"
-          },
-          {
-            "size": "L",
-            "external_id": "69e056a4a763d1"
-          },
-          {
-            "size": "XL",
-            "external_id": "69e056a4a76455"
-          },
-          {
-            "size": "2XL",
-            "external_id": "69e056a4a764d3"
-          },
-          {
-            "size": "3XL",
-            "external_id": "69e056a4a76552"
+            "external_id": "69e056ae13e783"
           }
         ]
       },
@@ -2322,131 +2334,157 @@
         "name": "Pink",
         "hex": "#f4a0b0",
         "images": {
-          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-pink-front-69e05e56d0bb3.png"
+          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-pink-front-69e05d95aa750.png",
+          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-pink-back-69e05d95ab268.png"
         },
         "sizes": [
           {
             "size": "S",
-            "external_id": "69e056a4a775e4"
+            "external_id": "69e056ae13ee66"
           },
           {
             "size": "M",
-            "external_id": "69e056a4a77679"
+            "external_id": "69e056ae13eeb2"
           },
           {
             "size": "L",
-            "external_id": "69e056a4a776f2"
+            "external_id": "69e056ae13ef06"
           },
           {
             "size": "XL",
-            "external_id": "69e056a4a77772"
+            "external_id": "69e056ae13ef42"
           },
           {
             "size": "2XL",
-            "external_id": "69e056a4a777f8"
-          },
-          {
-            "size": "3XL",
-            "external_id": "69e056a4a77867"
+            "external_id": "69e056ae13ef95"
           }
         ]
       },
       {
-        "name": "Forest Green",
+        "name": "Mustard",
+        "hex": "#c8922a",
+        "images": {
+          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-mustard-front-69e05d95aa4c8.png",
+          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-mustard-back-69e05d95ab10c.png"
+        },
+        "sizes": [
+          {
+            "size": "XS",
+            "external_id": "69e056ae13ead9"
+          },
+          {
+            "size": "S",
+            "external_id": "69e056ae13eb19"
+          },
+          {
+            "size": "M",
+            "external_id": "69e056ae13eb79"
+          },
+          {
+            "size": "L",
+            "external_id": "69e056ae13ebb6"
+          },
+          {
+            "size": "XL",
+            "external_id": "69e056ae13ec04"
+          },
+          {
+            "size": "2XL",
+            "external_id": "69e056ae13ec52"
+          }
+        ]
+      },
+      {
+        "name": "Forest",
         "hex": "#2d5016",
         "images": {
-          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-forest-green-front-69e05e56d0d08.png"
+          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-forest-front-69e05d95aa37c.png",
+          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-forest-back-69e05d95ab056.png"
         },
         "sizes": [
           {
             "size": "S",
-            "external_id": "69e056a4a76661"
+            "external_id": "69e056ae13e7d4"
           },
           {
             "size": "M",
-            "external_id": "69e056a4a766f7"
+            "external_id": "69e056ae13e822"
           },
           {
             "size": "L",
-            "external_id": "69e056a4a76769"
+            "external_id": "69e056ae13e877"
           },
           {
             "size": "XL",
-            "external_id": "69e056a4a767e4"
+            "external_id": "69e056ae13e8b6"
           },
           {
             "size": "2XL",
-            "external_id": "69e056a4a76854"
-          },
-          {
-            "size": "3XL",
-            "external_id": "69e056a4a768d4"
+            "external_id": "69e056ae13e906"
           }
         ]
       },
       {
-        "name": "Leaf",
-        "hex": "#5a7a3a",
+        "name": "Teal",
+        "hex": "#007b8a",
         "images": {
-          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-leaf-front-69e05e56d09e1.png"
+          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-teal-front-69e05d95aab48.png",
+          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-teal-back-69e05d95ab46c.png"
         },
         "sizes": [
           {
+            "size": "XS",
+            "external_id": "69e056ae13eca9"
+          },
+          {
             "size": "S",
-            "external_id": "69e056a4a771d7"
+            "external_id": "69e056ae13ece4"
           },
           {
             "size": "M",
-            "external_id": "69e056a4a77248"
+            "external_id": "69e056ae13ed37"
           },
           {
             "size": "L",
-            "external_id": "69e056a4a772c9"
+            "external_id": "69e056ae13ed82"
           },
           {
             "size": "XL",
-            "external_id": "69e056a4a77463"
+            "external_id": "69e056ae13edc7"
           },
           {
             "size": "2XL",
-            "external_id": "69e056a4a774e5"
-          },
-          {
-            "size": "3XL",
-            "external_id": "69e056a4a77561"
+            "external_id": "69e056ae13ee11"
           }
         ]
       },
       {
-        "name": "Heather Deep Teal",
-        "hex": "#2d7d7a",
+        "name": "Aqua",
+        "hex": "#47c5d4",
         "images": {
-          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-heather-deep-teal-front-69e05e56d0e4d.png"
+          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-aqua-front-69e05d95a9f4b.png",
+          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-aqua-back-69e05d95aaeb8.png"
         },
         "sizes": [
           {
             "size": "S",
-            "external_id": "69e056a4a76957"
+            "external_id": "69e056ae13e949"
           },
           {
             "size": "M",
-            "external_id": "69e056a4a769d8"
+            "external_id": "69e056ae13e996"
           },
           {
             "size": "L",
-            "external_id": "69e056a4a76a48"
+            "external_id": "69e056ae13e9e4"
           },
           {
             "size": "XL",
-            "external_id": "69e056a4a76ac6"
+            "external_id": "69e056ae13ea36"
           },
           {
             "size": "2XL",
-            "external_id": "69e056a4a76b33"
-          },
-          {
-            "size": "3XL",
-            "external_id": "69e056a4a76bb5"
+            "external_id": "69e056ae13ea87"
           }
         ]
       },
@@ -2454,98 +2492,67 @@
         "name": "Navy",
         "hex": "#1a2744",
         "images": {
-          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-navy-front-69e05e56d0b12.png"
+          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-navy-front-69e05d95aa60f.png",
+          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-navy-back-69e05d95ab1b5.png"
         },
         "sizes": [
           {
+            "size": "XS",
+            "external_id": "69e056ae13e453"
+          },
+          {
             "size": "S",
-            "external_id": "69e056a4a75cb1"
+            "external_id": "69e056ae13e4a9"
           },
           {
             "size": "M",
-            "external_id": "69e056a4a75d73"
+            "external_id": "69e056ae13e4e2"
           },
           {
             "size": "L",
-            "external_id": "69e056a4a75e13"
+            "external_id": "69e056ae13e534"
           },
           {
             "size": "XL",
-            "external_id": "69e056a4a75e94"
+            "external_id": "69e056ae13e582"
           },
           {
             "size": "2XL",
-            "external_id": "69e056a4a75f16"
-          },
-          {
-            "size": "3XL",
-            "external_id": "69e056a4a75f91"
+            "external_id": "69e056ae13e5d3"
           }
         ]
       },
       {
-        "name": "Heather True Royal",
-        "hex": "#4466bb",
+        "name": "Vintage Black",
+        "hex": "#2d2d2b",
         "images": {
-          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-heather-true-royal-front-69e05e56d0da9.png"
+          "front": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-vintage-black-front-69e05d95aa9e3.png",
+          "back": "/mockups/unisex-front_and_back/unisex-staple-t-shirt-vintage-black-back-69e05d95ab3be.png"
         },
         "sizes": [
           {
+            "size": "XS",
+            "external_id": "69e056ae13e264"
+          },
+          {
             "size": "S",
-            "external_id": "69e056a4a76c36"
+            "external_id": "69e056ae13e2d5"
           },
           {
             "size": "M",
-            "external_id": "69e056a4a76cb4"
+            "external_id": "69e056ae13e325"
           },
           {
             "size": "L",
-            "external_id": "69e056a4a76d35"
+            "external_id": "69e056ae13e377"
           },
           {
             "size": "XL",
-            "external_id": "69e056a4a76db8"
+            "external_id": "69e056ae13e3b8"
           },
           {
             "size": "2XL",
-            "external_id": "69e056a4a76e39"
-          },
-          {
-            "size": "3XL",
-            "external_id": "69e056a4a76ea8"
-          }
-        ]
-      },
-      {
-        "name": "Black",
-        "hex": "#1a1a1a",
-        "images": {
-          "front": "/mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-black-front-69e05e56d068c.png"
-        },
-        "sizes": [
-          {
-            "size": "S",
-            "external_id": "69e056a4a76002"
-          },
-          {
-            "size": "M",
-            "external_id": "69e056a4a76089"
-          },
-          {
-            "size": "L",
-            "external_id": "69e056a4a760f7"
-          },
-          {
-            "size": "XL",
-            "external_id": "69e056a4a76171"
-          },
-          {
-            "size": "2XL",
-            "external_id": "69e056a4a761e8"
-          },
-          {
-            "size": "3XL",
-            "external_id": "69e056a4a76262"
+            "external_id": "69e056ae13e409"
           }
         ]
       }
@@ -2555,35 +2562,47 @@
         "type": "product_measure",
         "unit": "inches",
         "description": "<p dir=\"ltr\">Measurements are provided by our suppliers. Product measurements may vary by up to 2\" (5 cm).</p>\n<p dir=\"ltr\">Pro tip! Measure one of your products at home and compare with the measurements you see in this guide.</p>",
-        "image_url": "https://files.cdn.printful.com/upload/product-measure/60/60b49c6e0096700df12d74fad9ba4ab5_l?v=1691664304",
-        "image_description": "<h6 dir=\"ltr\">A Length</h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure to the bottom of the shirt.</span></p>\n<h6 dir=\"ltr\">B Width</h6>\n<p dir=\"ltr\">Place the end of the tape at the seam under the sleeve and pull the tape measure across the shirt to the seam under the opposite sleeve.</p>\n<h6>C Sleeve length</h6>\n<p>Place one end of the tape at the top of the set-in sleeve, then pull the tape down until you reach the hem of the sleeve.</p>",
+        "image_url": "https://files.cdn.printful.com/upload/product-measure/e6/e6ab5ac32761974387a1350fe576666e_l?v=1652962719",
+        "image_description": "<h6 dir=\"ltr\">A Length</h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure to the bottom of the shirt.</span></p>\n<h6 dir=\"ltr\">B Width</h6>\n<p dir=\"ltr\">Place the end of the tape at the seam under the sleeve and pull the tape measure across the shirt to the seam under the opposite sleeve.</p>",
         "measurements": [
           {
             "type_label": "Length",
             "values": [
               {
+                "size": "XS",
+                "value": "27"
+              },
+              {
                 "size": "S",
-                "value": "25 1/4"
+                "value": "28"
               },
               {
                 "size": "M",
-                "value": "26"
+                "value": "29"
               },
               {
                 "size": "L",
-                "value": "26 3/4"
+                "value": "30"
               },
               {
                 "size": "XL",
-                "value": "27 1/2"
+                "value": "31"
               },
               {
                 "size": "2XL",
-                "value": "28 1/4"
+                "value": "32"
               },
               {
                 "size": "3XL",
-                "value": "29"
+                "value": "33"
+              },
+              {
+                "size": "4XL",
+                "value": "34"
+              },
+              {
+                "size": "5XL",
+                "value": "35"
               }
             ]
           },
@@ -2591,8 +2610,12 @@
             "type_label": "Width",
             "values": [
               {
+                "size": "XS",
+                "value": "16.5"
+              },
+              {
                 "size": "S",
-                "value": "18 1/2"
+                "value": "18"
               },
               {
                 "size": "M",
@@ -2613,35 +2636,14 @@
               {
                 "size": "3XL",
                 "value": "28"
-              }
-            ]
-          },
-          {
-            "type_label": "Sleeve Length",
-            "values": [
-              {
-                "size": "S",
-                "value": "7 3/4"
               },
               {
-                "size": "M",
-                "value": "8 1/4"
+                "size": "4XL",
+                "value": "30"
               },
               {
-                "size": "L",
-                "value": "8 3/4"
-              },
-              {
-                "size": "XL",
-                "value": "9 1/2"
-              },
-              {
-                "size": "2XL",
-                "value": "10 1/4"
-              },
-              {
-                "size": "3XL",
-                "value": "10 3/4"
+                "size": "5XL",
+                "value": "32"
               }
             ]
           }
@@ -2650,42 +2652,59 @@
       "measure_yourself": {
         "type": "measure_yourself",
         "unit": "inches",
-        "description": "<p>Measurements are provided by suppliers.</p>\n<p>Product measurements may vary by up to 2<span style=\"font-family: Arial; font-size: 13px; text-align: center; white-space: pre-wrap;\">&Prime;</span> (5 cm).</p>",
-        "image_url": "https://files.cdn.printful.com/upload/measure-yourself/f4/f48c57160c353e24a242000e3d209f26_l?v=1691664304",
-        "image_description": "<h6><strong>A Length</strong></h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure t</span><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">o the bottom of the shirt.</span></p>\n<h6>B Chest</h6>\n<p dir=\"ltr\">Measure yourself around the fullest part of your chest. Keep the tape measure horizontal.</p>\n<h6>C Sleeve length</h6>\n<p>Place one end of the tape at the top of the set-in sleeve, then pull the tape down until you reach the hem of the sleeve.</p>",
+        "description": "<p>Measurements are provided by suppliers.</p>\n<p>Product measurements may vary by up to 2<span style=\"font-family: Arial; font-size: 13px; text-align: center; white-space: pre-wrap;\">&Prime;</span>&nbsp;(5 cm).</p>",
+        "image_url": "https://files.cdn.printful.com/upload/measure-yourself/1a/1a11f31816e9e95a4e4cb3412c597b16_l?v=1652962719",
+        "image_description": "<h6><strong>A Length</strong></h6>\n<p dir=\"ltr\"><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">Place the end of the tape beside the collar at the top of the tee (Highest Point Shoulder). Pull the tape measure t</span><span id=\"docs-internal-guid-a3ac3082-7fff-5f98-2623-3eb38d5f43a1\">o the bottom of the shirt.</span></p>\n<h6>B Chest</h6>\n<p dir=\"ltr\">Measure yourself around the fullest part of your chest. Keep the tape measure horizontal.</p>",
         "measurements": [
           {
             "type_label": "Length",
             "values": [
               {
+                "size": "XS",
+                "value": "27"
+              },
+              {
                 "size": "S",
-                "value": "25 1/4"
+                "value": "28"
               },
               {
                 "size": "M",
-                "value": "26"
+                "value": "29"
               },
               {
                 "size": "L",
-                "value": "26 3/4"
+                "value": "30"
               },
               {
                 "size": "XL",
-                "value": "27 1/2"
+                "value": "31"
               },
               {
                 "size": "2XL",
-                "value": "28 1/4"
+                "value": "32"
               },
               {
                 "size": "3XL",
-                "value": "29"
+                "value": "33"
+              },
+              {
+                "size": "4XL",
+                "value": "34"
+              },
+              {
+                "size": "5XL",
+                "value": "35"
               }
             ]
           },
           {
             "type_label": "Chest",
             "values": [
+              {
+                "size": "XS",
+                "min_value": "31",
+                "max_value": "34"
+              },
               {
                 "size": "S",
                 "min_value": "34",
@@ -2715,35 +2734,16 @@
                 "size": "3XL",
                 "min_value": "54",
                 "max_value": "57"
-              }
-            ]
-          },
-          {
-            "type_label": "Sleeve Length",
-            "values": [
-              {
-                "size": "S",
-                "value": "7 3/4"
               },
               {
-                "size": "M",
-                "value": "8 1/4"
+                "size": "4XL",
+                "min_value": "58",
+                "max_value": "61"
               },
               {
-                "size": "L",
-                "value": "8 3/4"
-              },
-              {
-                "size": "XL",
-                "value": "9 1/2"
-              },
-              {
-                "size": "2XL",
-                "value": "10 1/4"
-              },
-              {
-                "size": "3XL",
-                "value": "10 3/4"
+                "size": "5XL",
+                "min_value": "62",
+                "max_value": "65"
               }
             ]
           }

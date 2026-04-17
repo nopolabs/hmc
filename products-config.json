@@ -1,53 +1,13 @@
 [
   {
-    "slug": "69e05ba41a5e83",
-    "printful_product_id": 428417969,
-    "mockup_folder": "womens_softstyle-front_and_back",
-    "active": true,
-    "name": "Women’s Basic Softstyle T-Shirt HMC Crow Front and Back",
-    "description": "",
-    "price": 20,
-    "main_image": "mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-white-front-69e05cfd5a8df.png"
-  },
-  {
     "slug": "69e05ba02a2e08",
     "printful_product_id": 428417960,
     "mockup_folder": "womens_softstyle-front_only",
     "active": true,
     "name": "Women’s Basic Softstyle T-Shirt HMC Crow Front Only",
-    "description": "",
+    "description": "This tee has a semi-fitted cut that follows the body’s natural lines without feeling tight, making it a flattering choice for everyday wear. 100% ring-spun cotton.",
     "price": 20,
     "main_image": "mockups/womens_softstyle-front_only/womens-basic-softstyle-t-shirt-white-front-69e05d4f10ba1.png"
-  },
-  {
-    "slug": "69e056ae13e1c3",
-    "printful_product_id": 428416587,
-    "mockup_folder": "unisex-front_and_back",
-    "active": true,
-    "name": "Unisex T-Shirt HMC Crow Front and Back",
-    "description": "",
-    "price": 20,
-    "main_image": "mockups/unisex-front_and_back/unisex-staple-t-shirt-white-front-69e05d95aa89e.png"
-  },
-  {
-    "slug": "69e056aba0e644",
-    "printful_product_id": 428416583,
-    "mockup_folder": "unisex-front_only",
-    "active": true,
-    "name": "Unisex T-Shirt HMC Crow Front Only",
-    "description": "",
-    "price": 20,
-    "main_image": "mockups/unisex-front_only/unisex-staple-t-shirt-white-front-69e05dd29312e.png"
-  },
-  {
-    "slug": "69e056a85ac3c9",
-    "printful_product_id": 428416578,
-    "mockup_folder": "womens_relaxed-front_and_back",
-    "active": true,
-    "name": "Women's Relaxed T-Shirt HMC Crow Front And Back",
-    "description": "",
-    "price": 20,
-    "main_image": "mockups/womens_relaxed-front_and_back/womens-relaxed-t-shirt-white-front-69e05e16a2995.png"
   },
   {
     "slug": "69e056a4a75bc4",
@@ -55,8 +15,48 @@
     "mockup_folder": "womens_relaxed-front_only",
     "active": true,
     "name": "Women's Relaxed T-Shirt HMC Crow Front Only",
-    "description": "",
+    "description": "A relaxed-fit t-shirt designed for everyday wear. It’s made with side seams for structure and shape retention. 100% combed and ring-spun cotton.",
     "price": 20,
     "main_image": "mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-white-front-69e05e56d0c66.png"
+  },
+  {
+    "slug": "69e056aba0e644",
+    "printful_product_id": 428416583,
+    "mockup_folder": "unisex-front_only",
+    "active": true,
+    "name": "Unisex T-Shirt HMC Crow Front Only",
+    "description": "The Unisex Staple T-Shirt feels soft and light with just the right amount of stretch. It's comfortable and flattering for all.",
+    "price": 20,
+    "main_image": "mockups/unisex-front_only/unisex-staple-t-shirt-white-front-69e05dd29312e.png"
+  },
+  {
+    "slug": "69e05ba41a5e83",
+    "printful_product_id": 428417969,
+    "mockup_folder": "womens_softstyle-front_and_back",
+    "active": true,
+    "name": "Women’s Basic Softstyle T-Shirt HMC Crow Front and Back",
+    "description": "This tee has a semi-fitted cut that follows the body’s natural lines without feeling tight, making it a flattering choice for everyday wear. 100% ring-spun cotton.",
+    "price": 20,
+    "main_image": "mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-white-front-69e05cfd5a8df.png"
+  },
+  {
+    "slug": "69e056a85ac3c9",
+    "printful_product_id": 428416578,
+    "mockup_folder": "womens_relaxed-front_and_back",
+    "active": true,
+    "name": "Women's Relaxed T-Shirt HMC Crow Front And Back",
+    "description": "A relaxed-fit t-shirt designed for everyday wear. It’s made with side seams for structure and shape retention. 100% combed and ring-spun cotton.",
+    "price": 20,
+    "main_image": "mockups/womens_relaxed-front_and_back/womens-relaxed-t-shirt-white-front-69e05e16a2995.png"
+  },
+  {
+    "slug": "69e056ae13e1c3",
+    "printful_product_id": 428416587,
+    "mockup_folder": "unisex-front_and_back",
+    "active": true,
+    "name": "Unisex T-Shirt HMC Crow Front and Back",
+    "description": "The Unisex Staple T-Shirt feels soft and light with just the right amount of stretch. It's comfortable and flattering for all.",
+    "price": 20,
+    "main_image": "mockups/unisex-front_and_back/unisex-staple-t-shirt-white-front-69e05d95aa89e.png"
   }
 ]
