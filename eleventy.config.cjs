@@ -3,6 +3,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/styles.css");
   eleventyConfig.addPassthroughCopy({ "mockups": "mockups" });
+  eleventyConfig.addPassthroughCopy({ "favicon": "." });
 
   // JSON serialization filter for embedding data in templates
   eleventyConfig.addFilter("json", value => JSON.stringify(value));
