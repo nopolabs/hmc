@@ -6,7 +6,11 @@
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
-		"test": "vitest"
+		"test": "vitest",
+		"secrets:dev": "node set-secrets.js dev",
+		"secrets:prod": "node set-secrets.js prod",
+		"deploy:dev": "node set-secrets.js dev && wrangler deploy",
+		"deploy:prod": "node set-secrets.js prod && wrangler deploy"
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.12.4",
