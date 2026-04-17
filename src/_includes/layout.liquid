@@ -28,7 +28,10 @@
     <div class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
       <div class="cart-header">
         <h2>Cart</h2>
-        <button class="cart-close" id="cart-close" aria-label="Close cart">&#215;</button>
+        <div class="cart-header-actions">
+          <button class="cart-clear-btn" id="cart-clear" hidden>Clear all</button>
+          <button class="cart-close" id="cart-close" aria-label="Close cart">&#215;</button>
+        </div>
       </div>
       <div class="cart-empty" id="cart-empty"><p>Your cart is empty.</p></div>
       <div class="cart-items" id="cart-items"></div>
@@ -56,6 +59,10 @@
   </footer>
 
   <script>
+    // Valid (slug:color:size) combinations for the current catalog.
+    // Used to purge stale cart items when products change.
+    const _HMC_CATALOG = new Set([{% for product in products %}{% for color in product.colors %}{% for s in color.sizes %}"{{ product.slug }}:{{ color.name }}:{{ s.size }}",{% endfor %}{% endfor %}{% endfor %}]);
+
     const Cart = {
       KEY: 'hmc_cart',
       get() {
@@ -66,24 +73,33 @@
         localStorage.setItem(this.KEY, JSON.stringify(items));
         this.refresh();
       },
-      add(slug, name, size, price, image) {
+      add(slug, name, color, size, price, image) {
         const items = this.get();
-        const existing = items.find(i => i.slug === slug && i.size === size);
+        const existing = items.find(i => i.slug === slug && i.color === color && i.size === size);
         if (existing) existing.qty += 1;
-        else items.push({ slug, name, size, price, image, qty: 1 });
+        else items.push({ slug, name, color, size, price, image, qty: 1 });
         this.save(items);
         this.open();
       },
-      remove(slug, size) {
-        this.save(this.get().filter(i => !(i.slug === slug && i.size === size)));
+      remove(slug, color, size) {
+        this.save(this.get().filter(i => !(i.slug === slug && i.color === color && i.size === size)));
       },
-      changeQty(slug, size, delta) {
+      changeQty(slug, color, size, delta) {
         const items = this.get();
-        const item = items.find(i => i.slug === slug && i.size === size);
+        const item = items.find(i => i.slug === slug && i.color === color && i.size === size);
         if (!item) return;
         item.qty += delta;
-        if (item.qty <= 0) this.save(items.filter(i => !(i.slug === slug && i.size === size)));
+        if (item.qty <= 0) this.save(items.filter(i => !(i.slug === slug && i.color === color && i.size === size)));
         else this.save(items);
+      },
+      clear() { this.save([]); },
+      purgeUnknown() {
+        if (_HMC_CATALOG.size === 0) return;
+        try {
+          const raw = JSON.parse(localStorage.getItem(this.KEY) || '[]');
+          const valid = raw.filter(i => _HMC_CATALOG.has(`${i.slug}:${i.color}:${i.size}`));
+          if (valid.length !== raw.length) localStorage.setItem(this.KEY, JSON.stringify(valid));
+        } catch {}
       },
       count() { return this.get().reduce((s, i) => s + i.qty, 0); },
       total() { return this.get().reduce((s, i) => s + i.price * i.qty, 0); },
@@ -110,37 +126,40 @@
         const footer = document.getElementById('cart-footer');
         const empty = document.getElementById('cart-empty');
         if (!el) return;
+        const clearBtn = document.getElementById('cart-clear');
         if (items.length === 0) {
           el.innerHTML = '';
           footer.setAttribute('hidden', '');
           empty.removeAttribute('hidden');
+          if (clearBtn) clearBtn.setAttribute('hidden', '');
           return;
         }
         empty.setAttribute('hidden', '');
         footer.removeAttribute('hidden');
+        if (clearBtn) clearBtn.removeAttribute('hidden');
         el.innerHTML = items.map(item => `
           <div class="cart-item">
             <img class="cart-item-img" src="${item.image}" alt="${item.name}">
             <div class="cart-item-info">
               <div class="cart-item-name">${item.name}</div>
-              <div class="cart-item-meta">Size: ${item.size} &nbsp;·&nbsp; $${(item.price * item.qty).toFixed(2)}</div>
+              <div class="cart-item-meta">${item.color} &nbsp;·&nbsp; ${item.size} &nbsp;·&nbsp; $${(item.price * item.qty).toFixed(2)}</div>
             </div>
             <div class="cart-item-controls">
-              <button class="cart-qty-btn" data-slug="${item.slug}" data-size="${item.size}" data-delta="-1">−</button>
+              <button class="cart-qty-btn" data-slug="${item.slug}" data-color="${item.color}" data-size="${item.size}" data-delta="-1">−</button>
               <span class="cart-qty">${item.qty}</span>
-              <button class="cart-qty-btn" data-slug="${item.slug}" data-size="${item.size}" data-delta="1">+</button>
-              <button class="cart-remove" data-slug="${item.slug}" data-size="${item.size}" aria-label="Remove">&#215;</button>
+              <button class="cart-qty-btn" data-slug="${item.slug}" data-color="${item.color}" data-size="${item.size}" data-delta="1">+</button>
+              <button class="cart-remove" data-slug="${item.slug}" data-color="${item.color}" data-size="${item.size}" aria-label="Remove">&#215;</button>
             </div>
           </div>
         `).join('');
         document.getElementById('cart-total').textContent = '$' + this.total().toFixed(2);
         el.querySelectorAll('.cart-qty-btn').forEach(btn => {
           btn.addEventListener('click', () => {
-            this.changeQty(btn.dataset.slug, btn.dataset.size, parseInt(btn.dataset.delta));
+            this.changeQty(btn.dataset.slug, btn.dataset.color, btn.dataset.size, parseInt(btn.dataset.delta));
           });
         });
         el.querySelectorAll('.cart-remove').forEach(btn => {
-          btn.addEventListener('click', () => this.remove(btn.dataset.slug, btn.dataset.size));
+          btn.addEventListener('click', () => this.remove(btn.dataset.slug, btn.dataset.color, btn.dataset.size));
         });
       },
       async checkout() {
@@ -153,7 +172,7 @@
           const res = await fetch('/checkout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ items: items.map(i => ({ slug: i.slug, size: i.size, qty: i.qty })) }),
+            body: JSON.stringify({ items: items.map(i => ({ slug: i.slug, color: i.color, size: i.size, qty: i.qty })) }),
           });
           const data = await res.json();
           if (data.url) window.location.href = data.url;
@@ -167,9 +186,11 @@
     };
 
     document.addEventListener('DOMContentLoaded', () => {
+      Cart.purgeUnknown();
       Cart.refresh();
       document.getElementById('cart-open').addEventListener('click', () => Cart.open());
       document.getElementById('cart-close').addEventListener('click', () => Cart.close());
+      document.getElementById('cart-clear').addEventListener('click', () => Cart.clear());
       document.getElementById('cart-overlay').addEventListener('click', e => {
         if (e.target === document.getElementById('cart-overlay')) Cart.close();
       });

@@ -14,39 +14,62 @@ layout: layout.liquid
 
     <div class="product-card">
       <div class="product-image-wrapper">
-        <img class="product-main-image" src="{{ product.images[0] }}" alt="{{ product.name }}">
+        <img class="product-main-image" src="{{ product.main_image }}" alt="{{ product.name }}">
       </div>
-      {% if product.images.size > 1 %}
+
+      {% if product.colors[0].images.back %}
         <div class="product-thumbnails">
-          {% for img in product.images %}
-            <img src="{{ img }}" alt="{{ product.name }}" onclick="this.closest('.product-card').querySelector('.product-main-image').src = this.src">
-          {% endfor %}
+          <img class="thumb thumb-front"
+               src="{{ product.colors[0].images.front }}"
+               alt="{{ product.name }} front"
+               onclick="this.closest('.product-card').querySelector('.product-main-image').src=this.src">
+          <img class="thumb thumb-back"
+               src="{{ product.colors[0].images.back }}"
+               alt="{{ product.name }} back"
+               onclick="this.closest('.product-card').querySelector('.product-main-image').src=this.src">
         </div>
       {% endif %}
+
       <div class="product-title-price">
         <h2>{{ product.name }}</h2>
-        <p>${{ product.variants[0].price }}</p>
+        <p>${{ product.price }}</p>
       </div>
+
       {% if product.description %}
         <p class="product-description">{{ product.description }}</p>
       {% endif %}
+
       {% if product.size_guide %}
         <button class="sg-trigger" data-size-guide="{{ product.slug }}" type="button">Size guide</button>
       {% endif %}
+
       <div class="product-actions"
            data-slug="{{ product.slug }}"
            data-name="{{ product.name }}"
-           data-image="{{ product.images[0] }}">
-        <div class="size-select-row">
-          Size:
-          <select class="size-select" required>
-            <option value="" selected disabled>Select</option>
-            {% for variant in product.variants %}
-              <option value="{{ variant.size }}" data-price="{{ variant.price }}">{{ variant.size }}</option>
+           data-price="{{ product.price }}"
+           data-colors="{{ product.colors | json | escape }}">
+
+        <div class="variant-row">
+          <span class="variant-label">Color</span>
+          <div class="color-swatches">
+            {% for color in product.colors %}
+              <button type="button"
+                      class="color-swatch"
+                      data-color="{{ color.name }}"
+                      style="background-color: {{ color.hex }};"
+                      aria-label="{{ color.name }}"></button>
             {% endfor %}
+          </div>
+        </div>
+
+        <div class="variant-row">
+          <span class="variant-label">Size</span>
+          <select class="size-select">
+            <option value="" selected disabled>—</option>
           </select>
         </div>
-        <button type="button" class="buy-button add-to-cart-btn">Add to Cart</button>
+
+        <button type="button" class="buy-button add-to-cart-btn" disabled>Add to Cart</button>
       </div>
     </div>
 
@@ -59,7 +82,7 @@ layout: layout.liquid
         </div>
         <div class="sg-tabs">
           {% if pmTable %}<button class="sg-tab active" data-tab="pm" type="button">Product measurements</button>{% endif %}
-          {% if myTable %}<button class="sg-tab" data-tab="my" type="button">Measure yourself</button>{% endif %}
+          {% if myTable %}<button class="sg-tab{% unless pmTable %} active{% endunless %}" data-tab="my" type="button">Measure yourself</button>{% endif %}
         </div>
 
         {% if pmTable %}
@@ -93,7 +116,7 @@ layout: layout.liquid
         {% endif %}
 
         {% if myTable %}
-        <div class="sg-panel" data-panel="my" hidden>
+        <div class="sg-panel" data-panel="my"{% if pmTable %} hidden{% endif %}>
           <div class="sg-diagram">
             <img src="{{ myTable.image_url }}" alt="Measure yourself diagram">
             <div class="sg-diagram-desc">{{ myTable.image_description }}</div>
@@ -129,6 +152,7 @@ layout: layout.liquid
 </div>
 
 <script>
+  // ── Size guide ──────────────────────────────────────────────────────────────
   document.querySelectorAll('[data-size-guide]').forEach(btn => {
     btn.addEventListener('click', () => {
       document.getElementById('sg-' + btn.dataset.sizeGuide).removeAttribute('hidden');
@@ -161,24 +185,68 @@ layout: layout.liquid
       document.querySelectorAll('.sg-overlay:not([hidden])').forEach(closeSg);
   });
 
+  // ── Product cards ───────────────────────────────────────────────────────────
   document.querySelectorAll('.product-actions').forEach(actions => {
-    const btn = actions.querySelector('.add-to-cart-btn');
-    if (!btn) return;
-    btn.addEventListener('click', () => {
-      const select = actions.querySelector('.size-select');
-      if (!select.value) {
-        select.focus();
-        select.reportValidity();
-        return;
-      }
-      const opt = select.options[select.selectedIndex];
+    const card       = actions.closest('.product-card');
+    const colors     = JSON.parse(actions.dataset.colors);
+    const mainImg    = card.querySelector('.product-main-image');
+    const thumbFront = card.querySelector('.thumb-front');
+    const thumbBack  = card.querySelector('.thumb-back');
+    const sizeSelect = actions.querySelector('.size-select');
+    const addBtn     = actions.querySelector('.add-to-cart-btn');
+
+    let selectedColor = null;
+
+    function selectColor(color) {
+      selectedColor = color;
+
+      // Update active swatch
+      actions.querySelectorAll('.color-swatch').forEach(s => {
+        s.classList.toggle('active', s.dataset.color === color.name);
+      });
+
+      // Update main image and thumbnails
+      mainImg.src = color.images.front;
+      if (thumbFront) thumbFront.src = color.images.front;
+      if (thumbBack && color.images.back) thumbBack.src = color.images.back;
+
+      // Repopulate size dropdown
+      sizeSelect.innerHTML = '<option value="" selected disabled>—</option>';
+      color.sizes.forEach(({ size }) => {
+        const opt = document.createElement('option');
+        opt.value = size;
+        opt.textContent = size;
+        sizeSelect.appendChild(opt);
+      });
+      sizeSelect.value = '';
+      addBtn.disabled = true;
+    }
+
+    actions.querySelectorAll('.color-swatch').forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        const color = colors.find(c => c.name === swatch.dataset.color);
+        if (color) selectColor(color);
+      });
+    });
+
+    sizeSelect.addEventListener('change', () => {
+      addBtn.disabled = !selectedColor || !sizeSelect.value;
+    });
+
+    addBtn.addEventListener('click', () => {
+      if (!selectedColor || !sizeSelect.value) return;
       Cart.add(
         actions.dataset.slug,
         actions.dataset.name,
-        select.value,
-        parseFloat(opt.dataset.price),
-        actions.dataset.image
+        selectedColor.name,
+        sizeSelect.value,
+        parseFloat(actions.dataset.price),
+        selectedColor.images.front
       );
     });
+
+    // Auto-select first color (White) so sizes are populated on load
+    const firstSwatch = actions.querySelector('.color-swatch');
+    if (firstSwatch) firstSwatch.click();
   });
 </script>

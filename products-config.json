@@ -1,76 +1,62 @@
 [
   {
-    "slug": "69b246101f9e58",
-    "name": "Pink Women’s basic softstyle t-shirt HMC Crow",
-    "description": "This tee has a semi-fitted cut that follows the body’s natural lines without feeling tight, making it a flattering choice for everyday wear. 100% ring-spun cotton.",
-    "images": [
-      "/images/womens-basic-softstyle-t-shirt-azalea-back-69b209fd82d6b.png",
-      "/images/womens-basic-softstyle-t-shirt-azalea-back-69b209fd823de.png",
-      "/images/womens-basic-softstyle-t-shirt-azalea-front-69b209fd81b41.png",
-      "/images/womens-basic-softstyle-t-shirt-azalea-front-69b209fd828be.png"
-    ],
-    "printful_product_id": 423438586,
-    "retail_price": 20.0,
-    "active": true
+    "slug": "69e05ba41a5e83",
+    "printful_product_id": 428417969,
+    "mockup_folder": "womens_softstyle-front_and_back",
+    "active": true,
+    "name": "Women’s Basic Softstyle T-Shirt HMC Crow Front and Back",
+    "description": "",
+    "price": 20,
+    "main_image": "mockups/womens_softstyle-front_and_back/womens-basic-softstyle-t-shirt-white-front-69e05cfd5a8df.png"
   },
   {
-    "slug": "69b2f6abe68db2",
-    "name": "Black Unisex t-shirt HMC Crow",
-    "description": "The Unisex Staple T-Shirt feels soft and light with just the right amount of stretch. It's comfortable and flattering for all. We can't compliment this shirt enough–it's one of our crowd favorites, and it's sure to be your next favorite too! ",
-    "images": [
-      "/images/unisex-staple-t-shirt-vintage-black-front-69b2f7045ffef.png",
-      "/images/unisex-staple-t-shirt-vintage-black-back-69b2f7046044a.png",
-      "/images/unisex-staple-t-shirt-vintage-black-front-and-back-69b2f704606dd.png"
-    ],
-    "printful_product_id": 423519751,
-    "retail_price": 20.0,
-    "active": true
+    "slug": "69e05ba02a2e08",
+    "printful_product_id": 428417960,
+    "mockup_folder": "womens_softstyle-front_only",
+    "active": true,
+    "name": "Women’s Basic Softstyle T-Shirt HMC Crow Front Only",
+    "description": "",
+    "price": 20,
+    "main_image": "mockups/womens_softstyle-front_only/womens-basic-softstyle-t-shirt-white-front-69e05d4f10ba1.png"
   },
   {
-    "slug": "69af06d5cf6119",
-    "name": "Unisex Staple Eco T-Shirt HMC Crow",
-    "description": "The Unisex Staple Eco T-Shirt, made from 65% recycled polyester and 35% recycled cotton, has a soft and comfortable feel.",
-    "images": [
-      "/images/unisex-staple-eco-t-shirt-white-front-69b06a3ade282.png",
-      "/images/unisex-staple-eco-t-shirt-white-front-69b06a3aded55.png",
-      "/images/unisex-staple-eco-t-shirt-white-left-front-69b06a3adf075.png",
-      "/images/unisex-staple-eco-t-shirt-white-left-69b06a3ade70a.png",
-      "/images/unisex-staple-eco-t-shirt-white-right-69b06a3adea09.png"
-    ],
-    "printful_product_id": 423091495,
-    "retail_price": 20.0,
-    "active": true
+    "slug": "69e056ae13e1c3",
+    "printful_product_id": 428416587,
+    "mockup_folder": "unisex-front_and_back",
+    "active": true,
+    "name": "Unisex T-Shirt HMC Crow Front and Back",
+    "description": "",
+    "price": 20,
+    "main_image": "mockups/unisex-front_and_back/unisex-staple-t-shirt-white-front-69e05d95aa89e.png"
   },
   {
-    "slug": "69b05922051f48",
-    "name": "Women\u2019s basic softstyle t-shirt HMC Crow",
-    "description": "This tee has a semi-fitted cut that follows the body’s natural lines without feeling tight, making it a flattering choice for everyday wear. 100% ring-spun cotton.",
-    "images": [
-      "/images/womens-basic-softstyle-t-shirt-white-front-69b069d224451.png",
-      "/images/womens-basic-softstyle-t-shirt-white-front-69b069d225c40.png",
-      "/images/womens-basic-softstyle-t-shirt-white-right-front-69b069d2266af.png",
-      "/images/womens-basic-softstyle-t-shirt-white-left-69b069d22509f.png",
-      "/images/womens-basic-softstyle-t-shirt-white-right-69b069d2256bf.png",
-      "/images/womens-basic-softstyle-t-shirt-white-back-69b069d224b05.png",
-      "/images/womens-basic-softstyle-t-shirt-white-back-69b069d226182.png"
-    ],
-    "printful_product_id": 423234180,
-    "retail_price": 20.0,
-    "active": true
+    "slug": "69e056aba0e644",
+    "printful_product_id": 428416583,
+    "mockup_folder": "unisex-front_only",
+    "active": true,
+    "name": "Unisex T-Shirt HMC Crow Front Only",
+    "description": "",
+    "price": 20,
+    "main_image": "mockups/unisex-front_only/unisex-staple-t-shirt-white-front-69e05dd29312e.png"
   },
   {
-    "slug": "69b05a6edf8004",
-    "name": "Women's Relaxed T-Shirt HMC Crow",
-    "description": "A relaxed-fit t-shirt designed for everyday wear. It’s made with side seams for structure and shape retention. 100% combed and ring-spun cotton.",
-    "images": [
-      "/images/womens-relaxed-t-shirt-white-front-69b067f0beb84.png",
-      "/images/womens-relaxed-t-shirt-white-left-front-69b067f0bf20f.png",
-      "/images/womens-relaxed-t-shirt-white-right-front-69b067f0bf4c7.png",
-      "/images/womens-relaxed-t-shirt-white-left-69b067f0bf77e.png",
-      "/images/womens-relaxed-t-shirt-white-right-69b067f0bf9ae.png"
-    ],
-    "printful_product_id": 423235297,
-    "retail_price": 20.0,
-    "active": true
+    "slug": "69e056a85ac3c9",
+    "printful_product_id": 428416578,
+    "mockup_folder": "womens_relaxed-front_and_back",
+    "active": true,
+    "name": "Women's Relaxed T-Shirt HMC Crow Front And Back",
+    "description": "",
+    "price": 20,
+    "main_image": "mockups/womens_relaxed-front_and_back/womens-relaxed-t-shirt-white-front-69e05e16a2995.png"
+  },
+  {
+    "slug": "69e056a4a75bc4",
+    "printful_product_id": 428416570,
+    "mockup_folder": "womens_relaxed-front_only",
+    "active": true,
+    "name": "Women's Relaxed T-Shirt HMC Crow Front Only",
+    "description": "",
+    "price": 20,
+    "main_image": "mockups/womens_relaxed-front_only/womens-relaxed-t-shirt-white-front-69e05e56d0c66.png"
   }
 ]

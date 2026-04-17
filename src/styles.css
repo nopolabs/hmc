@@ -219,7 +219,112 @@ nav {
   margin-bottom: 0.75rem;
 }
 
-/* ── Product form ───────────────────────────────────────── */
+/* ── Product actions ────────────────────────────────────── */
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.variant-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.variant-label {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex-shrink: 0;
+  min-width: 2.5rem;
+}
+
+/* ── Color swatches ─────────────────────────────────────── */
+.color-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.color-swatch {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: transform 0.15s;
+  /* Inner shadow gives visible edge on light colors */
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+}
+
+.color-swatch:hover {
+  transform: scale(1.2);
+}
+
+.color-swatch::after {
+  content: attr(data-color);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  padding: 3px 6px;
+  border-radius: var(--radius);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.color-swatch:hover::after {
+  opacity: 1;
+}
+
+.color-swatch:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.color-swatch.active {
+  /* Double ring: gap in bg color, then solid text-color ring */
+  box-shadow:
+    0 0 0 2px var(--bg),
+    0 0 0 4px var(--text),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+}
+
+/* ── Size select ────────────────────────────────────────── */
+.size-select {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+.size-select:focus {
+  outline: none;
+  border-color: var(--text);
+}
+
+/* ── Product form (legacy, kept for compatibility) ──────── */
 .product-card form {
   display: flex;
   flex-direction: column;
@@ -577,6 +682,29 @@ footer {
   line-height: 1;
 }
 .cart-close:hover { color: var(--text); }
+
+.cart-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart-clear-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cart-clear-btn:hover { color: var(--text); }
+.cart-clear-btn[hidden] { display: none; }
 
 .cart-empty {
   flex: 1;

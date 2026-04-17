@@ -35,6 +35,16 @@ function shippingOption(totalItems) {
 	};
 }
 
+function lookupVariant(item) {
+	const productDef = PRODUCTS[item.slug];
+	if (!productDef) return { error: `Product not found: ${item.slug}` };
+	const colorVariants = productDef.variants[item.color];
+	if (!colorVariants) return { error: `Color not found: ${item.color} for product ${item.slug}` };
+	const variant = colorVariants[item.size];
+	if (!variant) return { error: `Size not found: ${item.size} for ${item.color}` };
+	return { productDef, variant };
+}
+
 async function handleCartCheckout(request, env) {
 	let body;
 	try {
@@ -50,15 +60,14 @@ async function handleCartCheckout(request, env) {
 
 	const lineItems = [];
 	for (const item of items) {
-		const productDef = PRODUCTS[item.slug];
-		if (!productDef) return new Response(`Product not found: ${item.slug}`, { status: 400 });
-		const variant = productDef.variants[item.size];
-		if (!variant) return new Response(`Size not found: ${item.size}`, { status: 400 });
+		if (!item.color) return new Response(`Missing color for item: ${item.slug}`, { status: 400 });
+		const { productDef, variant, error } = lookupVariant(item);
+		if (error) return new Response(error, { status: 400 });
 		lineItems.push({
 			price_data: {
 				currency: 'usd',
-				product_data: { name: `${productDef.name} (${item.size})` },
-				unit_amount: variant.price,
+				product_data: { name: `${productDef.name} — ${item.color} / ${item.size}` },
+				unit_amount: productDef.price,
 			},
 			quantity: item.qty || 1,
 		});
@@ -120,30 +129,30 @@ async function handleWebhook(request, env, ctx) {
 
 async function createPrintfulOrder(session, env) {
 	const cartItems = JSON.parse(session.metadata.items);
-	const shipping = session.collected_information.shipping_details;
+	const shipping  = session.collected_information.shipping_details;
 
 	let subtotal = 0;
 	const printfulItems = cartItems.map(item => {
-		const variant = PRODUCTS[item.slug].variants[item.size];
-		const lineTotal = (variant.price / 100) * item.qty;
+		const { productDef, variant } = lookupVariant(item);
+		const lineTotal = (productDef.price / 100) * item.qty;
 		subtotal += lineTotal;
 		return {
 			sync_variant_id: variant.printful_variant_id,
-			quantity: item.qty,
-			retail_price: (variant.price / 100).toFixed(2),
+			quantity:        item.qty,
+			retail_price:    (productDef.price / 100).toFixed(2),
 		};
 	});
 
 	const order = {
 		recipient: {
-			name: shipping.name,
-			address1: shipping.address.line1,
-			address2: shipping.address.line2 || '',
-			city: shipping.address.city,
-			state_code: shipping.address.state,
+			name:         shipping.name,
+			address1:     shipping.address.line1,
+			address2:     shipping.address.line2 || '',
+			city:         shipping.address.city,
+			state_code:   shipping.address.state,
 			country_code: shipping.address.country,
-			zip: shipping.address.postal_code,
-			email: session.customer_details.email,
+			zip:          shipping.address.postal_code,
+			email:        session.customer_details.email,
 		},
 		items: printfulItems,
 		retail_costs: {
