@@ -24,27 +24,39 @@ Secrets are stored permanently in Cloudflare under two environments:
 | default (prod) | `hmc-worker` | `sk_live_...` |
 | `dev` | `hmc-worker-dev` | `sk_test_...` |
 
-### One-time setup: seed secrets into Cloudflare
+### Where secrets live
 
-From the `worker/` directory, run once to upload secrets from local `.vars` files:
+Secrets are stored in Cloudflare only — no local `.vars` files are retained. To deploy or rotate keys you pull values from their respective dashboards:
 
-```bash
-npm run secrets:dev    # uploads test keys to hmc-worker-dev
-npm run secrets:prod   # uploads live keys to hmc-worker
-```
+| Secret | Where to find it |
+|---|---|
+| `STRIPE_SECRET_KEY` (test) | Stripe dashboard → Test mode on → Developers → API keys |
+| `STRIPE_SECRET_KEY` (live) | Stripe dashboard → Test mode off → Developers → API keys |
+| `STRIPE_WEBHOOK_SECRET` (test) | Stripe dashboard → Test mode on → Developers → Webhooks → endpoint → Signing secret |
+| `STRIPE_WEBHOOK_SECRET` (live) | Stripe dashboard → Test mode off → Developers → Webhooks → endpoint → Signing secret |
+| `PRINTFUL_API_KEY` | Printful dashboard → Settings → API |
 
-After that, local `.dev.vars` and `.prod.vars` are no longer needed and can be deleted.
+`PRINTFUL_API_KEY` is the same in both environments — Printful has no test mode.
 
 ### Rotating a key
 
-Use `wrangler secret put` directly (prompts for value, no local file needed):
+Use `wrangler secret put` directly (prompts for value):
 
 ```bash
-wrangler secret put STRIPE_SECRET_KEY --env dev   # test key
-wrangler secret put STRIPE_SECRET_KEY             # live key
+wrangler secret put STRIPE_SECRET_KEY --env dev   # test key → hmc-worker-dev
+wrangler secret put STRIPE_SECRET_KEY             # live key → hmc-worker
 ```
 
-`PRINTFUL_API_KEY` is the same in both environments — Printful has no test mode.
+### Reconstructing .dev.vars for local development
+
+`wrangler dev` (local dev server) requires a `.dev.vars` file. Recreate it from the dashboards above:
+
+```bash
+cp worker/.dev.vars.example worker/.dev.vars
+# fill in: STRIPE_SECRET_KEY (test), STRIPE_WEBHOOK_SECRET (test), PRINTFUL_API_KEY
+```
+
+`.dev.vars` is gitignored — do not commit it.
 
 ### Switching modes and deploying
 
@@ -57,8 +69,6 @@ npm run deploy:prod   # deploy to hmc-worker (live mode)
 
 `npm run deploy` is an alias for `deploy:prod`.
 
-`wrangler dev` (local dev server) still uses `.dev.vars` if present.
-
 ---
 
 ## One-time setup: register the webhook endpoint
@@ -66,11 +76,14 @@ npm run deploy:prod   # deploy to hmc-worker (live mode)
 This must be done separately for test mode and live mode.
 
 **Test mode** — Stripe dashboard → Test mode on → Developers → Webhooks:
+1. Add endpoint: `https://hmc-worker-dev.danrevel.workers.dev/webhook`
+2. Select event: `checkout.session.completed`
+3. Copy the signing secret (`whsec_...`) → `wrangler secret put STRIPE_WEBHOOK_SECRET --env dev`
+
+**Live mode** — Stripe dashboard → Test mode off → Developers → Webhooks:
 1. Add endpoint: `https://hmc-worker.danrevel.workers.dev/webhook`
 2. Select event: `checkout.session.completed`
-3. Copy the signing secret (`whsec_...`) → put this in `worker/.dev.vars` as `STRIPE_WEBHOOK_SECRET`
-
-**Live mode** — repeat the same steps with Test mode off, using your live keys.
+3. Copy the signing secret (`whsec_...`) → `wrangler secret put STRIPE_WEBHOOK_SECRET`
 
 ---
 
