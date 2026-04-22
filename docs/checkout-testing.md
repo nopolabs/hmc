@@ -17,37 +17,47 @@ Stripe has fully separate **test** and **live** environments, each with their ow
 
 ## Secret management
 
-Secrets are stored in two local files (both gitignored):
+Secrets are stored permanently in Cloudflare under two environments:
 
-| File | Purpose |
-|---|---|
-| `worker/.dev.vars` | Test mode secrets (`sk_test_...`) |
-| `worker/.prod.vars` | Live mode secrets (`sk_live_...`) |
+| Environment | Worker name | Stripe keys |
+|---|---|---|
+| default (prod) | `hmc-worker` | `sk_live_...` |
+| `dev` | `hmc-worker-dev` | `sk_test_...` |
 
-Copy the example files to get started:
+### One-time setup: seed secrets into Cloudflare
+
+From the `worker/` directory, run once to upload secrets from local `.vars` files:
+
 ```bash
-cp worker/.dev.vars.example worker/.dev.vars    # fill in test keys
-cp worker/.prod.vars.example worker/.prod.vars  # fill in live keys
+npm run secrets:dev    # uploads test keys to hmc-worker-dev
+npm run secrets:prod   # uploads live keys to hmc-worker
 ```
 
-`PRINTFUL_API_KEY` is the same in both files — Printful has no test mode.
+After that, local `.dev.vars` and `.prod.vars` are no longer needed and can be deleted.
+
+### Rotating a key
+
+Use `wrangler secret put` directly (prompts for value, no local file needed):
+
+```bash
+wrangler secret put STRIPE_SECRET_KEY --env dev   # test key
+wrangler secret put STRIPE_SECRET_KEY             # live key
+```
+
+`PRINTFUL_API_KEY` is the same in both environments — Printful has no test mode.
 
 ### Switching modes and deploying
 
 From the `worker/` directory:
 
 ```bash
-npm run deploy:dev    # push test secrets + deploy
-npm run deploy:prod   # push live secrets + deploy
+npm run deploy:dev    # deploy to hmc-worker-dev (test mode)
+npm run deploy:prod   # deploy to hmc-worker (live mode)
 ```
 
-To push secrets only (without deploying, e.g. when rotating a key):
-```bash
-npm run secrets:dev
-npm run secrets:prod
-```
+`npm run deploy` is an alias for `deploy:prod`.
 
-`npm run deploy` deploys without touching secrets (uses whatever is already set in Cloudflare).
+`wrangler dev` (local dev server) still uses `.dev.vars` if present.
 
 ---
 

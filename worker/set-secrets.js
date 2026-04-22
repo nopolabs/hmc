@@ -37,9 +37,13 @@ for (const line of content.split('\n')) {
   secrets[trimmed.slice(0, eq).trim()] = trimmed.slice(eq + 1).trim();
 }
 
+const wranglerArgs = env === 'dev'
+  ? ['secret', 'put', '--env', 'dev']
+  : ['secret', 'put'];
+
 for (const [key, value] of Object.entries(secrets)) {
   console.log(`Setting ${key}...`);
-  const result = spawnSync('wrangler', ['secret', 'put', key], {
+  const result = spawnSync('wrangler', [...wranglerArgs, key], {
     input: value,
     encoding: 'utf8',
     stdio: ['pipe', 'inherit', 'inherit'],
@@ -50,4 +54,4 @@ for (const [key, value] of Object.entries(secrets)) {
   }
 }
 
-console.log(`\nSecrets from .${env}.vars applied. Run "npm run deploy" to deploy.`);
+console.log(`\nSecrets from .${env}.vars applied. Run "npm run deploy:${env}" to deploy.`);

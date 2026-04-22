@@ -4,13 +4,13 @@
 	"private": true,
 	"scripts": {
 		"deploy": "wrangler deploy",
+		"deploy:dev": "wrangler deploy --env dev",
+		"deploy:prod": "wrangler deploy",
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
 		"test": "vitest",
 		"secrets:dev": "node set-secrets.js dev",
-		"secrets:prod": "node set-secrets.js prod",
-		"deploy:dev": "node set-secrets.js dev && wrangler deploy",
-		"deploy:prod": "node set-secrets.js prod && wrangler deploy"
+		"secrets:prod": "node set-secrets.js prod"
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.12.4",

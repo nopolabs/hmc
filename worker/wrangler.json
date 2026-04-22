@@ -24,5 +24,16 @@
 			"id": "fed14a1372f6452cb33e81a41f5132bf",
 			"preview_id": "47b8bf2d131f4b7583d7975ae88dd92e"
 		}
-	]
+	],
+	"env": {
+		"dev": {
+			"name": "hmc-worker-dev",
+			"kv_namespaces": [
+				{
+					"binding": "ORDERS",
+					"id": "47b8bf2d131f4b7583d7975ae88dd92e"
+				}
+			]
+		}
+	}
 }
