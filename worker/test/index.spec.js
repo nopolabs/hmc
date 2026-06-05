@@ -1,5 +1,5 @@
 import { env, createExecutionContext, waitOnExecutionContext } from 'cloudflare:test';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import worker from '../src';
 import { PRODUCTS } from '../src/products.js';
 
@@ -164,6 +164,16 @@ describe('POST /checkout -happy path', () => {
 		const call = mockSessionCreate.mock.calls[0][0];
 		expect(call.line_items[0].quantity).toBe(3);
 	});
+
+	it('includes site and printful_store_id in Stripe session metadata', async () => {
+		mockSessionCreate.mockResolvedValueOnce({ url: 'https://checkout.stripe.com/pay/test_abc' });
+
+		await callWorker(postJson('/checkout', { items: [VALID_ITEM] }));
+
+		const call = mockSessionCreate.mock.calls[0][0];
+		expect(call.metadata.site).toBe('hmc');
+		expect(call.metadata.printful_store_id).toBe('17828143');
+	});
 });
 
 // ── POST /webhook ─────────────────────────────────────────────────────────────
@@ -192,6 +202,27 @@ describe('POST /webhook', () => {
 		expect(res.status).toBe(200);
 	});
 
+	it('returns 200 for a new checkout.session.completed event', async () => {
+		const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (url) => {
+			if (String(url).includes('/orders?'))
+				return new Response(JSON.stringify({ result: { id: 'pf_999' } }), { status: 200 });
+			return new Response(JSON.stringify({ result: { status: 'pending' } }), { status: 200 });
+		});
+
+		mockConstructEvent.mockResolvedValueOnce(
+			mockWebhookEvent('checkout.session.completed', { id: 'cs_test_new_1' })
+		);
+
+		const req = new Request('https://hmc-cycling.org/webhook', {
+			method: 'POST',
+			headers: { 'stripe-signature': 'sig' },
+			body: '{}',
+		});
+		const res = await callWorker(req);
+		expect(res.status).toBe(200);
+		fetchSpy.mockRestore();
+	});
+
 	it('returns 200 and skips order creation for already-processed sessions', async () => {
 		const sessionId = 'cs_test_already_done';
 		await env.ORDERS.put(sessionId, 'processed');
@@ -207,5 +238,62 @@ describe('POST /webhook', () => {
 		});
 		const res = await callWorker(req);
 		expect(res.status).toBe(200);
+	});
+});
+
+// ── Printful reconciliation IDs ──────────────────────────────────────────────
+describe('Printful reconciliation IDs', () => {
+	let mockFetch;
+
+	beforeEach(() => {
+		mockFetch = vi.spyOn(globalThis, 'fetch').mockImplementation(async (url) => {
+			if (String(url).includes('/orders?'))
+				return new Response(JSON.stringify({ result: { id: 'pf_order_1' } }), { status: 200 });
+			return new Response(JSON.stringify({ result: { status: 'pending' } }), { status: 200 });
+		});
+	});
+
+	afterEach(() => {
+		mockFetch.mockRestore();
+	});
+
+	async function triggerWebhook(sessionOverrides = {}) {
+		mockConstructEvent.mockResolvedValueOnce(
+			mockWebhookEvent('checkout.session.completed', sessionOverrides)
+		);
+		return callWorker(new Request('https://hmc-cycling.org/webhook', {
+			method: 'POST',
+			headers: { 'stripe-signature': 'sig' },
+			body: '{}',
+		}));
+	}
+
+	async function captureOrderBody() {
+		const createCall = mockFetch.mock.calls.find(([url]) => String(url).includes('/orders?'));
+		return JSON.parse(createCall[1].body);
+	}
+
+	it('sends Stripe session ID as Printful order external_id', async () => {
+		await triggerWebhook({ id: 'cs_test_rid_1' });
+		const body = await captureOrderBody();
+		expect(body.external_id).toBe('cs_test_rid_1');
+	});
+
+	it('sends deterministic external IDs on each Printful line item', async () => {
+		await triggerWebhook({ id: 'cs_test_rid_2' });
+		const body = await captureOrderBody();
+		expect(body.items[0].external_id).toBe('cs_test_rid_2-1');
+	});
+
+	it('includes shipping cost in retail_costs when available in the session', async () => {
+		await triggerWebhook({ id: 'cs_test_rid_3', total_details: { amount_shipping: 599 } });
+		const body = await captureOrderBody();
+		expect(body.retail_costs.shipping).toBe('5.99');
+	});
+
+	it('omits shipping from retail_costs when not present in the session', async () => {
+		await triggerWebhook({ id: 'cs_test_rid_4' });
+		const body = await captureOrderBody();
+		expect(body.retail_costs.shipping).toBeUndefined();
 	});
 });

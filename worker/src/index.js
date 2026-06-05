@@ -81,7 +81,11 @@ async function handleCartCheckout(request, env) {
 		mode: 'payment',
 		shipping_address_collection: { allowed_countries: ['US'] },
 		shipping_options: [shippingOption(totalItems)],
-		metadata: { items: JSON.stringify(items) },
+		metadata: {
+			site: 'hmc',
+			printful_store_id: String(PRINTFUL_STORE_ID),
+			items: JSON.stringify(items),
+		},
 		success_url: 'https://hmc-cycling.org/success',
 		cancel_url: 'https://hmc-cycling.org/',
 	});
@@ -132,11 +136,12 @@ async function createPrintfulOrder(session, env) {
 	const shipping  = session.collected_information.shipping_details;
 
 	let subtotal = 0;
-	const printfulItems = cartItems.map(item => {
+	const printfulItems = cartItems.map((item, index) => {
 		const { productDef, variant } = lookupVariant(item);
 		const lineTotal = (productDef.price / 100) * item.qty;
 		subtotal += lineTotal;
 		return {
+			external_id:     `${session.id}-${index + 1}`,
 			sync_variant_id: variant.printful_variant_id,
 			quantity:        item.qty,
 			retail_price:    (productDef.price / 100).toFixed(2),
@@ -144,6 +149,7 @@ async function createPrintfulOrder(session, env) {
 	});
 
 	const order = {
+		external_id: session.id,
 		recipient: {
 			name:         shipping.name,
 			address1:     shipping.address.line1,
@@ -158,6 +164,9 @@ async function createPrintfulOrder(session, env) {
 		retail_costs: {
 			currency: 'USD',
 			subtotal: subtotal.toFixed(2),
+			...(session.total_details?.amount_shipping
+				? { shipping: (session.total_details.amount_shipping / 100).toFixed(2) }
+				: {}),
 		}
 	};
 
