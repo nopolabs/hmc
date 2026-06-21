@@ -2,7 +2,7 @@ Syncing Products from Printful
 
 Product data is managed in products-config.json and synced from the Printful API.
 Running the sync generates two files (do not edit manually):
-  src/_data/products.json     — Eleventy front-end catalog
+  products.source.json        — raw front-end catalog (enriched at build by src/_data/products.js)
   worker/src/products.js      — Cloudflare Worker catalog
 
 ## Source of truth

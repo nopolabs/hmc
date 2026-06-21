@@ -191,6 +191,18 @@ layout: layout.liquid
   });
 
   // ── Product cards ───────────────────────────────────────────────────────────
+  // Each color image is { src (PNG fallback), srcset (WebP widths), width, height }.
+  const MAIN_SIZES  = '(max-width: 800px) 45vw, 30vw';
+  const THUMB_SIZES = '120px';
+  function setImg(img, image, sizes) {
+    if (!img || !image) return;
+    img.src = image.src;
+    img.srcset = image.srcset;
+    img.sizes = sizes;
+    if (image.width)  img.width  = image.width;
+    if (image.height) img.height = image.height;
+  }
+
   document.querySelectorAll('.product-actions').forEach(actions => {
     const card       = actions.closest('.product-card');
     const colors     = JSON.parse(actions.dataset.colors);
@@ -210,10 +222,10 @@ layout: layout.liquid
         s.classList.toggle('active', s.dataset.color === color.name);
       });
 
-      // Update main image and thumbnails
-      mainImg.src = color.images.front;
-      if (thumbFront) thumbFront.src = color.images.front;
-      if (thumbBack && color.images.back) thumbBack.src = color.images.back;
+      // Update main image and thumbnails (responsive: src + srcset + sizes)
+      setImg(mainImg, color.images.front, MAIN_SIZES);
+      setImg(thumbFront, color.images.front, THUMB_SIZES);
+      if (color.images.back) setImg(thumbBack, color.images.back, THUMB_SIZES);
 
       // Repopulate size dropdown
       sizeSelect.innerHTML = '<option value="" selected disabled>—</option>';
@@ -246,7 +258,7 @@ layout: layout.liquid
         selectedColor.name,
         sizeSelect.value,
         parseFloat(actions.dataset.price),
-        selectedColor.images.front
+        selectedColor.images.front.src
       );
     });
 
