@@ -122,7 +122,7 @@ This forwards Stripe webhook events to your local Worker and prints the `STRIPE_
 
 ## Adding or changing products
 
-`products-config.json` is the single source of truth. Never edit `src/_data/products.json` or `worker/src/products.js` directly — they are generated files.
+`products-config.json` is the single source of truth. Never edit `products.source.json` or `worker/src/products.js` directly — they are generated files.
 
 To add or update a product, edit `products-config.json` then run:
 

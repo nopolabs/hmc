@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Syncs product data from Printful into:
-//   src/_data/products.json   (Eleventy front-end)
+//   products.source.json      (raw front-end catalog; enriched by src/_data/products.js)
 //   worker/src/products.js    (Cloudflare Worker)
 //
 // Usage:
@@ -211,7 +211,9 @@ function buildProductData(entry, syncVariants, sizeGuide) {
 }
 
 function writeDataFiles(frontendProducts, workerProducts) {
-  const productsJsonPath = resolve(__dirname, 'src/_data/products.json');
+  // Raw front-end catalog. src/_data/products.js reads this and generates
+  // responsive (WebP + PNG) derivatives, exporting the enriched `products`.
+  const productsJsonPath = resolve(__dirname, 'products.source.json');
   writeFileSync(productsJsonPath, JSON.stringify(frontendProducts, null, 2) + '\n');
   console.log(`Wrote ${productsJsonPath}`);
 

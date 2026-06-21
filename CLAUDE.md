@@ -32,7 +32,7 @@ npm test           # Run tests with Vitest
 
 ## Architecture
 
-**Frontend** (`src/`) is a static Eleventy site using Liquid templates, deployed to Cloudflare Pages automatically on git push to main. Product data is injected via `src/_data/products.json`.
+**Frontend** (`src/`) is a static Eleventy site using Liquid templates, deployed to Cloudflare Pages automatically on git push to main. Product data is the raw `products.source.json` (repo root), enriched at build by `src/_data/products.js` — which generates responsive WebP+PNG image derivatives (`@11ty/eleventy-img` → `_site/img/`) and exports the `products` global. See `docs/webp-responsive-images-design.md`.
 
 **Worker** (`worker/`) is a Cloudflare Worker handling two routes:
 - `POST /checkout` — receives a cart JSON payload, creates a Stripe Checkout session, returns `{ url }` for redirect
@@ -58,7 +58,7 @@ Each product has two variant dimensions: **color** and **size**. Products map 1:
 
 Never edit the generated files directly. Edit `products-config.json` and re-sync.
 
-**`src/_data/products.json`** (generated) — consumed by Eleventy. Shape per product:
+**`products.source.json`** (generated, repo root) — raw catalog read by `src/_data/products.js`, which enriches each color image into `{ src, srcset, width, height }` and exports the `products` global Eleventy consumes. Shape per product:
 ```json
 {
   "slug": "...", "name": "...", "description": "...", "price": "20.00",
@@ -76,7 +76,7 @@ PRODUCTS[slug] = { name, price /* cents */, variants: { [color]: { [size]: { pri
 ## Product Sync Workflow
 
 1. `node sync-products.js --init` — reads `docs/printful-products.json` (fetch once with `--json`), writes `products-config.json` and preliminary data files. Run once to bootstrap; edit config as needed.
-2. `node sync-products.js` — fetches live variant data + size guides from Printful API, writes final `src/_data/products.json` and `worker/src/products.js`.
+2. `node sync-products.js` — fetches live variant data + size guides from Printful API, writes final `products.source.json` and `worker/src/products.js`.
 3. Deploy the worker: `cd worker && npm run deploy`
 4. Push the site: `git push` (Cloudflare Pages builds automatically)
 
