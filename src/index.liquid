@@ -7,6 +7,9 @@ layout: layout.liquid
   <h1>HMC, <em>Cycling.</em></h1>
 </div>
 
+{% comment %} Transparent 1x1 placeholder: the real (randomly-chosen) color image is
+   set by JS on load, so the page never fetches the white default first. {% endcomment %}
+{% assign blankImage = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" %}
 <div class="products">
   {% for product in products %}
     {% assign pmTable = product.size_guide.product_measure %}
@@ -14,17 +17,19 @@ layout: layout.liquid
 
     <div class="product-card">
       <div class="product-image-wrapper">
-        <img class="product-main-image" src="{{ product.main_image }}" alt="{{ product.name }}">
+        <img class="product-main-image" src="{{ blankImage }}" alt="{{ product.name }}">
       </div>
 
       {% if product.colors[0].images.back %}
         <div class="product-thumbnails">
           <img class="thumb thumb-front"
-               src="{{ product.colors[0].images.front }}"
+               src="{{ blankImage }}"
+               loading="lazy"
                alt="{{ product.name }} front"
                onclick="this.closest('.product-card').querySelector('.product-main-image').src=this.src">
           <img class="thumb thumb-back"
-               src="{{ product.colors[0].images.back }}"
+               src="{{ blankImage }}"
+               loading="lazy"
                alt="{{ product.name }} back"
                onclick="this.closest('.product-card').querySelector('.product-main-image').src=this.src">
         </div>
@@ -245,8 +250,11 @@ layout: layout.liquid
       );
     });
 
-    // Auto-select first color (White) so sizes are populated on load
-    const firstSwatch = actions.querySelector('.color-swatch');
-    if (firstSwatch) firstSwatch.click();
+    // Select a random color on load (each card picks independently) so the grid
+    // shows variety instead of an all-white row. This also populates sizes.
+    const swatches = actions.querySelectorAll('.color-swatch');
+    if (swatches.length) {
+      swatches[Math.floor(Math.random() * swatches.length)].click();
+    }
   });
 </script>
