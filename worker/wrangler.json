@@ -8,16 +8,6 @@
 	"observability": {
 		"enabled": true
 	},
-	"routes": [
-		{
-			"pattern": "hmc-cycling.org/checkout*",
-			"zone_name": "hmc-cycling.org"
-		},
-		{
-			"pattern": "hmc-cycling.org/webhook*",
-			"zone_name": "hmc-cycling.org"
-		}
-	],
 	"kv_namespaces": [
 		{
 			"binding": "ORDERS",
